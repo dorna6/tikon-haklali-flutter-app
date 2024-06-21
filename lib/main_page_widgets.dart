@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 // my imports
 import 'theme_widgets.dart';
 import 'main_image_widgets.dart';
+import 'tikon_haklali.dart';
 
 //
 //
@@ -23,7 +24,6 @@ class MainPageAppBar {
     required ThemeProvider themeProvider,
     required String appTitleText,
   }) {
-
     // define text style for the app bar
     final TextStyle textStyleAppbar = TextStyle(
       fontSize: 30,
@@ -94,21 +94,29 @@ class MainPageBody {
     required BuildContext context,
     required bool isDarkMode,
   }) {
+    final ScrollController _scrollController = ScrollController();
+
     return Scrollbar(
       child: Padding(
-        padding: const EdgeInsets.only(left: 1.0, right: 1.0, top: 0.0),
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 0.0),
         child: SingleChildScrollView(
+          controller: _scrollController,
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // widget content
+                // spacer
                 const SizedBox(height: 15),
+                // main big image
                 MainPageBigImage.bigImage(context: context),
-                const SizedBox(height: 15),
-              ], // children
+                // spacer
+                const SizedBox(height: 20),
+                // tikon haklali text
+                tikonHaklali.column(context: context),
+              ],
             ),
+            // children
           ),
         ),
       ),

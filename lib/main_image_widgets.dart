@@ -35,7 +35,7 @@ class MainPageBigImage {
         boxShadow: [boxShadowMainImg],
       ),
       height: 300,
-      width: MediaQuery.of(context).size.width * 0.9,
+      // width: MediaQuery.of(context).size.width * 0.9,
       alignment: Alignment.center,
       child: Stack(
         children: [
