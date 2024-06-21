@@ -19,7 +19,7 @@ class LightTheme {
       background: const Color(0xFFf6f6f8), // background color
       primary: const Color(0xFFffffff), // menu line color
       secondary: const Color(0xFF000000), // text color
-      shadow: const Color(0xFFe3e3e3), // shadow
+      shadow: const Color(0xFF919191), // shadow
     ),
   );
 }
