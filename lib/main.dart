@@ -34,6 +34,7 @@ import 'package:provider/provider.dart';
 
 // my imports
 import 'theme_widgets.dart';
+import 'main_page_widgets.dart';
 
 //
 //
@@ -76,7 +77,14 @@ class MainPage extends StatelessWidget {
 
     // main page widgets
     return Scaffold(
-      appBar: AppBar(title: Text('My App')),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      appBar: MainPageAppBar.appBar(
+        context: context,
+        isDarkMode: isDarkMode,
+        themeProvider: themeProvider,
+        appTitleText: 'התיקון הכללי'
+      ),
+      body: ,
     );
   }
 }
