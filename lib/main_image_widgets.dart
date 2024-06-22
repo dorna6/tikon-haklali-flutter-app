@@ -3,13 +3,21 @@
 //
 
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 //
 //
 //
-/////////////////////
-// main image data //
-/////////////////////
+///////////////////////
+// main image widget //
+///////////////////////
+
+// generate random number for main image text
+final random1 = Random();
+final randomIndex_main_img_text = random1.nextInt(mainImgText.length);
+
+final random2 = Random();
+final randomIndex_main_img = random2.nextInt(mainImgPath.length);
 
 class MainPageBigImage {
   static Container bigImage({
@@ -43,15 +51,15 @@ class MainPageBigImage {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(0),
               child:
-                  Image.asset(mainImgPath[5], fit: BoxFit.cover),
+                  Image.asset(mainImgPath[randomIndex_main_img], fit: BoxFit.cover),
             ),
           ),
           Positioned.fill(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.all(0),
+                padding: const EdgeInsets.all(30),
                 child: Text(
-                  mainImgText[0],
+                  mainImgText[randomIndex_main_img_text],
                   textAlign: TextAlign.center,
                   style: textStyleMainImg,
                 ),
@@ -64,6 +72,12 @@ class MainPageBigImage {
   }
 }
 
+//
+//
+//
+/////////////////////
+// main image data //
+/////////////////////
 
   // main image text list
   const List<String> mainImgText = [

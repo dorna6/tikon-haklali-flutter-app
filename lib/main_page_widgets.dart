@@ -104,6 +104,8 @@ class MainPageBody {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // spacer
+              const SizedBox(height: 20),
               // main big image
               MainPageBigImage.bigImage(context: context),
               // spacer

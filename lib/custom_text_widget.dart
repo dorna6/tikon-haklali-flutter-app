@@ -12,11 +12,13 @@ class CustomRichText extends StatelessWidget {
   final TextSpan textSpan;
   final TextDirection textDirection;
   final Alignment alignment;
+  final TextAlign textAlign;
 
   const CustomRichText({
     required this.textSpan,
     this.textDirection = TextDirection.rtl,
-    this.alignment = Alignment.topRight, // Default alignment
+    this.alignment = Alignment.topRight,
+    this.textAlign = TextAlign.right,
   });
 
   @override
@@ -24,12 +26,22 @@ class CustomRichText extends StatelessWidget {
     return Align(
       alignment: alignment,
       child: RichText(
-        textDirection: textDirection ?? TextDirection.rtl,
+        textDirection: textDirection,
+        textAlign: textAlign,
         text: textSpan,
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
 
 //
 //

@@ -51,6 +51,8 @@ class tikonHaklali {
 
     return Column(children: [
       CustomRichText(
+        textAlign: TextAlign.justify,
+        textDirection: TextDirection.rtl,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
