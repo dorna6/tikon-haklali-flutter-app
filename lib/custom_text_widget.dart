@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 //
@@ -34,15 +33,6 @@ class CustomRichText extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
 //
 //
 //
@@ -50,9 +40,34 @@ class CustomRichText extends StatelessWidget {
 // Custom text class //
 ///////////////////////
 
+class CustomRichTextPasok extends StatelessWidget {
+  final TextSpan textSpanHead;
+  final TextSpan textSpan;
 
+  const CustomRichTextPasok({
+    required this.textSpanHead,
+    required this.textSpan,
+  });
 
-
-
-
-
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: RichText(
+            textDirection: TextDirection.rtl,
+            textAlign: TextAlign.right,
+            text: textSpan,
+          ),
+        ),
+        RichText(
+          textDirection: TextDirection.rtl,
+          textAlign: TextAlign.right,
+          text: textSpanHead,
+        ),
+      ],
+    );
+  }
+}

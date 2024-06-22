@@ -21,11 +21,18 @@ class tikonHaklali {
 
     // text styles
     final TextStyle textStyleSimpleText = TextStyle(
-        fontSize: 20,
+        fontSize: 22,
         fontFamily: 'DavidLibre',
         fontWeight: FontWeight.w400,
         color: Theme.of(context).colorScheme.secondary,
         height: 1.4);
+
+    final TextStyle textStyleSimpleText_pasokHead = TextStyle(
+        fontSize: 16,
+        fontFamily: 'DavidLibre',
+        fontWeight: FontWeight.w400,
+        color: Theme.of(context).colorScheme.onSecondary,
+        height: 1.85);
 
     final TextStyle textStyleSimpleTextHeadline = TextStyle(
         fontSize: 28,
@@ -34,20 +41,28 @@ class tikonHaklali {
         color: Theme.of(context).colorScheme.secondary);
 
     final TextStyle textStyleSimpleText_small = TextStyle(
-        fontSize: 16,
+        fontSize: 17,
         fontFamily: 'DavidLibre',
         fontWeight: FontWeight.w500,
         color: Theme.of(context).colorScheme.secondary,
         height: 1.3);
 
+    final TextStyle textStyleSimpleText_pasokNotes = TextStyle(
+        fontSize: 15,
+        fontFamily: 'DavidLibre',
+        fontWeight: FontWeight.w400,
+        color: Theme.of(context).colorScheme.secondary,
+        height: 1.3);
+
     final TextStyle textStyleSimpleTextBold = TextStyle(
-        fontSize: 24,
+        fontSize: 25,
         fontFamily: "DavidLibre",
         fontWeight: FontWeight.w700,
         color: Theme.of(context).colorScheme.secondary,
         height: 1.4);
 
     final String endOfPasokStr = ':';
+    final String endOfPasokHeadStr = '  ';
 
     return Column(children: [
       SizedBox(height: shortSpace),
@@ -236,11 +251,32 @@ class tikonHaklali {
         ),
       ),
       SizedBox(height: shortSpace),
-      CustomRichText(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "א",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "א. מִכְתָּם לְדָוִד שָׁמְרֵנִי אֵל כִּי חָסִיתִי בָךְ",
+              text: "מִכְתָּם לְדָוִד שָׁמְרֵנִי ",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: "(שָׁמְרֵנִי בקמץ רגיל) ",
+              style: textStyleSimpleText_pasokNotes,
+            ),
+            TextSpan(
+              text: "אֵל כִּי חָסִיתִי בָךְ",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -250,22 +286,60 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "ב",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא שָׁמְרֵנִי בקמץ רגילְ)",
-              style: textStyleSimpleText_small,
+              text: "אָמַרְתְּ לַיהֹוָה ",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: "(לַדוֹנָי – א נחה) ",
+              style: textStyleSimpleText_pasokNotes,
+            ),
+            TextSpan(
+              text: "אֲדֹנָי אָתָּה טוֹבָתִי בַּל עָלֶיךָ",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
             ),
           ],
         ),
       ),
-      CustomRichText(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "ג",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
               text:
-                  "ב. אָמַרְתְּ לַיהֹוָה אֲדֹנָי אָתָּה טוֹבָתִי בַּל עָלֶיךָ",
+                  "לִקְדוֹשִׁים אֲשֶׁר בָּאָרֶץ הֵמָּה וְאַדִּירֵי כָּל חֶפְצִי בָם",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -275,37 +349,25 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
-        textSpan: TextSpan(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא לַדוֹנָי – א נחה)",
-              style: textStyleSimpleText_small,
+              text: "ד",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
             ),
           ],
         ),
-      ),
-      CustomRichText(
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text:
-                  "ג. לִקְדוֹשִׁים אֲשֶׁר בָּאָרֶץ הֵמָּה וְאַדִּירֵי כָּל חֶפְצִי בָם",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
-            ),
-          ],
-        ),
-      ),
-      CustomRichText(
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
               text:
-                  "ד. יִרְבּוּ עַצְּבוֹתָם אַחֵר מָהָרוּ בַּל אַסִּיךְ נִסְכֵּיהֶם מִדָּם וּבַל אֶשָּׂא אֶת שְׁמוֹתָם עַל שְׂפָתָי",
+                  "יִרְבּוּ עַצְּבוֹתָם אַחֵר מָהָרוּ בַּל אַסִּיךְ נִסְכֵּיהֶם מִדָּם וּבַל אֶשָּׂא אֶת שְׁמוֹתָם עַל שְׂפָתָי",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -315,12 +377,52 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "ה",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
+        textSpan: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "יְהֹוָה מְנָת חֶלְקִי וְכוֹסִי אַתָּה תּוֹמִיךְ גּוֹרָלִי",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
+            ),
+          ],
+        ),
+      ),
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "ו",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
               text:
-                  "ה. יְהֹוָה מְנָת חֶלְקִי וְכוֹסִי אַתָּה תּוֹמִיךְ גּוֹרָלִי",
+                  "חֲבָלִים נָפְלוּ לִי בַּנְּעִמִים אַף נַחֲלָת שָׁפְרָה עָלָי",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -330,12 +432,25 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "ז",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
               text:
-                  "ו. חֲבָלִים נָפְלוּ לִי בַּנְּעִמִים אַף נַחֲלָת שָׁפְרָה עָלָי",
+                  "אֲבָרֵךְ אֶת יְהֹוָה אֲשֶׁר יְעָצָנִי אַף לֵילוֹת יִסְּרוּנִי כִלְיוֹתָי",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -345,12 +460,25 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "ח",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
               text:
-                  "ז. אֲבָרֵךְ אֶת יְהֹוָה אֲשֶׁר יְעָצָנִי אַף לֵילוֹת יִסְּרוּנִי כִלְיוֹתָי",
+                  "שִׁוִּיתִי יְהֹוָה לְנֶגְדִּי תָמִיד כִּי מִימִינִי בַּל אֶמּוֹט",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -360,12 +488,25 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "ט",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
               text:
-                  "ח. שִׁוִּיתִי יְהֹוָה לְנֶגְדִּי תָמִיד כִּי מִימִינִי בַּל אֶמּוֹט",
+                  "לָכֵן שָׂמַח לִבִּי וַיָּגֶל כְּבוֹדִי אַף בְּשָׂרִי יִשְׁכֹּן לָבֶטַח",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -375,12 +516,25 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "י",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
               text:
-                  "ט. לָכֵן שָׂמַח לִבִּי וַיָּגֶל כְּבוֹדִי אַף בְּשָׂרִי יִשְׁכֹּן לָבֶטַח",
+                  "כִּי לֹא תַעֲזֹב נַפְשִׁי לִשְׁאוֹל לֹא תִתֵּן חֲסִידְךָ לִרְאוֹת שָׁחַת",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -390,12 +544,25 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
+
+      CustomRichTextPasok(
+        textSpanHead: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "יא",
+              style: textStyleSimpleText_pasokHead,
+            ),
+            TextSpan(
+              text: endOfPasokHeadStr,
+              style: textStyleSimpleText_pasokHead,
+            ),
+          ],
+        ),
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
               text:
-                  "י. כִּי לֹא תַעֲזֹב נַפְשִׁי לִשְׁאוֹל לֹא תִתֵּן חֲסִידְךָ לִרְאוֹת שָׁחַת",
+                  "תּוֹדִיעֵנִי אֹרַח חַיִּים שׂבַע שְׂמָחוֹת אֶת פָּנֶיךָ נְעִמוֹת בִּימִינְךָ נֶצַח",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -405,21 +572,7 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text:
-                  "יא. תּוֹדִיעֵנִי אֹרַח חַיִּים שׂבַע שְׂמָחוֹת אֶת פָּנֶיךָ נְעִמוֹת בִּימִינְךָ נֶצַח",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
-            ),
-          ],
-        ),
-      ),
+
       SizedBox(height: longSpace),
       CustomRichText(
         textAlign: TextAlign.center,

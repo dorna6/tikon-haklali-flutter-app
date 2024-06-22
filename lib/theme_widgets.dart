@@ -19,6 +19,7 @@ class LightTheme {
       background: const Color(0xFFf6f6f8), // background color
       primary: const Color(0xFFffffff), // menu line color
       secondary: const Color(0xFF000000), // text color
+      onSecondary: const Color(0xFF8a8a8a), // lighter text color
       shadow: const Color(0xFF919191), // shadow
     ),
   );
@@ -37,6 +38,7 @@ class DarkTheme {
       background: const Color(0xFF202020),
       primary: const Color(0xFF2B2B2B),
       secondary: const Color(0xFFffffff),
+      onSecondary: const Color(0xFF9e9e9e),
       shadow: const Color(0xFF2B2B2B),
     ),
   );
