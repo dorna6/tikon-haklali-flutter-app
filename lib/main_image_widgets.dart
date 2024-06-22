@@ -31,28 +31,27 @@ class MainPageBigImage {
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(0),
         boxShadow: [boxShadowMainImg],
       ),
       height: 300,
-      // width: MediaQuery.of(context).size.width * 0.9,
+      width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
       child: Stack(
         children: [
           Positioned.fill(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(
-                  30), // Same border radius as the container
+              borderRadius: BorderRadius.circular(0),
               child:
-                  Image.asset(MainImageData.mainImgPath[5], fit: BoxFit.cover),
+                  Image.asset(mainImgPath[5], fit: BoxFit.cover),
             ),
           ),
           Positioned.fill(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.all(30),
+                padding: const EdgeInsets.all(0),
                 child: Text(
-                  MainImageData.mainImgText[0],
+                  mainImgText[0],
                   textAlign: TextAlign.center,
                   style: textStyleMainImg,
                 ),
@@ -65,10 +64,9 @@ class MainPageBigImage {
   }
 }
 
-class MainImageData {
 
   // main image text list
-  static final List<String> mainImgText = [
+  const List<String> mainImgText = [
     'מִי שֶׁאֵינוֹ אוֹמֵר שֶׁקֶר, הַקָּדוֹשׁ בָּרוּךְ הוּא מוֹשִׁיעַ לוֹ בְּעֵת צָרָתוֹ גַּם בָּנִים יִהְיוּ לוֹ',
     'עַל יְדֵי אֱמֶת נִצּוֹל מִלָּשׁוֹן הָרָע גַּם תְּפִלָּתוֹ נִתְקַבֵּל. גַּם כְּשֶׁדָּנִים אוֹתוֹ לְמַעְלָה, דָּנִים אוֹתוֹ לְפִי זְכֻיּוֹת שֶׁלּוֹ',
     'מִי שֶׁשּׁוֹמֵר אֶת עַצְמוֹ וְדוֹבֵר תָּמִיד אֱמֶת, כְּאִלּוּ עָשָׂה שָׁמַיִם וָאָרֶץ וְאֶת הַיָּם וְאֶת כָּל אֲשֶׁר בָּם',
@@ -157,7 +155,7 @@ class MainImageData {
   ];
 
   // main image list
-  static final List<String> mainImgPath = [
+  const List<String> mainImgPath = [
     'assets/main_img_1.png',
     'assets/main_img_2.png',
     'assets/main_img_3.png',
@@ -193,4 +191,4 @@ class MainImageData {
     'assets/main_img_33.png',
     'assets/main_img_34.png',
   ];
-}
+

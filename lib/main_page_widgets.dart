@@ -97,27 +97,26 @@ class MainPageBody {
     final ScrollController _scrollController = ScrollController();
 
     return Scrollbar(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 0.0),
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // spacer
-                const SizedBox(height: 15),
-                // main big image
-                MainPageBigImage.bigImage(context: context),
-                // spacer
-                const SizedBox(height: 20),
-                // tikon haklali text
-                tikonHaklali.column(context: context),
-              ],
-            ),
-            // children
+      child: SingleChildScrollView(
+        controller: _scrollController,
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // main big image
+              MainPageBigImage.bigImage(context: context),
+              // spacer
+              const SizedBox(height: 20),
+              // tikon haklali text
+              Padding(
+                padding:
+                    const EdgeInsets.only(left: 20.0, right: 20.0, top: 0.0),
+                child: tikonHaklali.column(context: context),
+              ),
+            ],
           ),
+          // children
         ),
       ),
     );
