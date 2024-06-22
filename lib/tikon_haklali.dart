@@ -50,6 +50,20 @@ class tikonHaklali {
     final String endOfPasokStr = ':';
 
     return Column(children: [
+      SizedBox(height: shortSpace),
+      CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
+        textSpan: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "הקדמה",
+              style: textStyleSimpleTextHeadline,
+            ),
+          ],
+        ),
+      ),
+      SizedBox(height: shortSpace),
       CustomRichText(
         textAlign: TextAlign.justify,
         textDirection: TextDirection.rtl,
@@ -69,13 +83,15 @@ class tikonHaklali {
                   " הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא תִּקּוּן הַכְּלָלִי,"
                   " כִּי כָּל עֲבֵרָה יֵשׁ לָהּ תִּקּוּן מְיֻחָד, אֲבָל תִּקּוּן הַזֶּה הוּא תִּקּוּן הַכְּלָלִי"
                   " (שיחות הר'ן קמ'א).",
-              style: textStyleSimpleText_small,
+              style: textStyleSimpleText,
             ),
           ],
         ),
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -97,6 +113,7 @@ class tikonHaklali {
         ),
       ),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -123,6 +140,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -144,6 +163,7 @@ class tikonHaklali {
         ),
       ),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -158,6 +178,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -183,6 +204,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -202,6 +224,8 @@ class tikonHaklali {
       //////////////////////////////////////////////////
 
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -212,16 +236,6 @@ class tikonHaklali {
         ),
       ),
       SizedBox(height: shortSpace),
-      CustomRichText(
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text: "(צריך לקרוא שָׁמְרֵנִי בקמץ רגילְ)",
-              style: textStyleSimpleText_small,
-            ),
-          ],
-        ),
-      ),
       CustomRichText(
         textSpan: TextSpan(
           children: <TextSpan>[
@@ -240,7 +254,7 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא לַדוֹנָי – א נחה)",
+              text: "(צריך לקרוא שָׁמְרֵנִי בקמץ רגילְ)",
               style: textStyleSimpleText_small,
             ),
           ],
@@ -257,6 +271,16 @@ class tikonHaklali {
             TextSpan(
               text: endOfPasokStr,
               style: textStyleSimpleText,
+            ),
+          ],
+        ),
+      ),
+      CustomRichText(
+        textSpan: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "(צריך לקרוא לַדוֹנָי – א נחה)",
+              style: textStyleSimpleText_small,
             ),
           ],
         ),
@@ -398,6 +422,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -472,16 +498,6 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא לַדוֹנָי – א נחה)",
-              style: textStyleSimpleText_small,
-            ),
-          ],
-        ),
-      ),
-      CustomRichText(
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
               text:
                   "ה. חַטָּאתִי אוֹדִיעֲךָ וַעֲוֹנִי לֹא כִסִּיתִי אָמַרְתִּי אוֹדֶה עֲלֵי פְשָׁעַי לַיהֹוָה וְאַתָּה נָשָׂאתָ עֲוֹן חַטָּאתִי סֶלָה",
               style: textStyleSimpleText,
@@ -497,13 +513,8 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "ו. עַל זֹאת יִתְפַּלֵּל כָּל חָסִיד אֵלֶיךָ לְעֵת מְצֹא רַק לְשֵׁטֶף מַיִם רַבִּים אֵלָיו לֹא יַגִּיעוּ",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
+              text: "(צריך לקרוא לַדוֹנָי – א נחה)",
+              style: textStyleSimpleText_small,
             ),
           ],
         ),
@@ -512,8 +523,9 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא רוֹנֵּי)",
-              style: textStyleSimpleText_small,
+              text:
+                  "ו. עַל זֹאת יִתְפַּלֵּל כָּל חָסִיד אֵלֶיךָ לְעֵת מְצֹא רַק לְשֵׁטֶף מַיִם רַבִּים אֵלָיו לֹא יַגִּיעוּ",
+              style: textStyleSimpleText,
             ),
             TextSpan(
               text: endOfPasokStr,
@@ -554,12 +566,26 @@ class tikonHaklali {
               style: textStyleSimpleText,
             ),
             TextSpan(
-              text: '(יפסיק מעט) (טוב לכוון בשם סא"ל) ',
+              text: '(יפסיק מעט, טוב לכוון בשם סא"ל) ',
               style: textStyleSimpleText_small,
             ),
             TextSpan(
               text: "מִצַּר תִּצְּרֵנִי רָנֵּי פַלֵּט תְּסוֹבְבֵנִי סֶלָה",
               style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
+            ),
+          ],
+        ),
+      ),
+      CustomRichText(
+        textSpan: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "(צריך לקרוא רוֹנֵּי)",
+              style: textStyleSimpleText_small,
             ),
             TextSpan(
               text: endOfPasokStr,
@@ -602,16 +628,6 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא בַדוֹנָי – א נחה)",
-              style: textStyleSimpleText_small,
-            ),
-          ],
-        ),
-      ),
-      CustomRichText(
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
               text:
                   "י. רַבִּים מַכְאוֹבִים לָרָשָׁע וְהַבּוֹטֵחַ בַּיהֹוָה חֶסֶד יְסוֹבְבֶנּוּ",
               style: textStyleSimpleText,
@@ -627,7 +643,7 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא בַדוֹנָי – א נחה) ",
+              text: "(צריך לקרוא בַדוֹנָי – א נחה)",
               style: textStyleSimpleText_small,
             ),
           ],
@@ -648,8 +664,20 @@ class tikonHaklali {
           ],
         ),
       ),
+      CustomRichText(
+        textSpan: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "(צריך לקרוא בַדוֹנָי – א נחה) ",
+              style: textStyleSimpleText_small,
+            ),
+          ],
+        ),
+      ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -870,6 +898,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -913,8 +943,13 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא לֵלֹהִים - א נחה)",
-              style: textStyleSimpleText_small,
+              text:
+                  "ג.צָמְאָה נַפְשִׁי לֵאלֹהִים לְאֵל חָי מָתַי אָבוֹא וְאֵרָאֶה פְּנֵי אֱלֹהִים",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
             ),
           ],
         ),
@@ -923,13 +958,8 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "ג.צָמְאָה נַפְשִׁי לֵאלֹהִים לְאֵל חָי מָתַי אָבוֹא וְאֵרָאֶה פְּנֵי אֱלֹהִים",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
+              text: "(צריך לקרוא לֵלֹהִים - א נחה)",
+              style: textStyleSimpleText_small,
             ),
           ],
         ),
@@ -1058,6 +1088,21 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
+              text:
+                  "יב. מַה תִּשְׁתּוֹחֲחִי נַפְשִׁי וּמַה תֶּהֱמִי עָלָי הוֹחִילִי לֵאלֹהִים כִּי עוֹד אוֹדֶנּוּ יְשׁוּעֹת פָּנַי וֵאלֹהָי",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
+            ),
+          ],
+        ),
+      ),
+      CustomRichText(
+        textSpan: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
               text: "(צריך לקרוא וֵלֹהָי - א נחה)",
               style: textStyleSimpleText_small,
             ),
@@ -1074,23 +1119,10 @@ class tikonHaklali {
           ],
         ),
       ),
-      CustomRichText(
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text:
-                  "יב. מַה תִּשְׁתּוֹחֲחִי נַפְשִׁי וּמַה תֶּהֱמִי עָלָי הוֹחִילִי לֵאלֹהִים כִּי עוֹד אוֹדֶנּוּ יְשׁוּעֹת פָּנַי וֵאלֹהָי",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
-            ),
-          ],
-        ),
-      ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -1370,6 +1402,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -1398,8 +1432,13 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: 'ב"אלהים" יכוון השם במילוי אלף למד אלף למד הי יוד מם',
-              style: textStyleSimpleText_small,
+              text:
+                  "ב. קוֹלִי אֶל אֱלֹהִים וְאֶצְעָקָה קוֹלִי אֶל אֱלֹהִים וְהַאֲזִין אֵלָי",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
             ),
           ],
         ),
@@ -1408,13 +1447,8 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "ב. קוֹלִי אֶל אֱלֹהִים וְאֶצְעָקָה קוֹלִי אֶל אֱלֹהִים וְהַאֲזִין אֵלָי",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
+              text: 'ב"אלהים" יכוון השם במילוי אלף למד אלף למד הי יוד מם',
+              style: textStyleSimpleText_small,
             ),
           ],
         ),
@@ -1583,8 +1617,13 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא כֵּלֹהִים – א נחה)",
-              style: textStyleSimpleText_small,
+              text:
+                  "יד. אֱלֹהִים בַּקֹּדֶשׁ דַּרְכֶּךָ מִי אֵל גָּדוֹל כֵּאלֹהִים",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
             ),
           ],
         ),
@@ -1593,13 +1632,8 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "יד. אֱלֹהִים בַּקֹּדֶשׁ דַּרְכֶּךָ מִי אֵל גָּדוֹל כֵּאלֹהִים",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
+              text: "(צריך לקרוא כֵּלֹהִים – א נחה)",
+              style: textStyleSimpleText_small,
             ),
           ],
         ),
@@ -1710,6 +1744,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -1856,8 +1892,13 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא וְרוֹהְבָּם - ה בשווא נח) ",
-              style: textStyleSimpleText_small,
+              text:
+                  "י. יְמֵי שְׁנוֹתֵינוּ בָּהֶם שִׁבְעִים שָׁנָה וְאִם בִּגְבוּרֹת שְׁמוֹנִים שָׁנָה וְרָהְבָּם עָמָל וָאָוֶן כִּי גָז חִישׁ וַנָּעֻפָה",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
             ),
           ],
         ),
@@ -1866,13 +1907,8 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "י. יְמֵי שְׁנוֹתֵינוּ בָּהֶם שִׁבְעִים שָׁנָה וְאִם בִּגְבוּרֹת שְׁמוֹנִים שָׁנָה וְרָהְבָּם עָמָל וָאָוֶן כִּי גָז חִישׁ וַנָּעֻפָה",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
+              text: "(צריך לקרוא וְרוֹהְבָּם - ה בשווא נח) ",
+              style: textStyleSimpleText_small,
             ),
           ],
         ),
@@ -1981,6 +2017,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -1995,8 +2033,13 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(צריך לקרוא לַדוֹנָי – א נחה)",
-              style: textStyleSimpleText_small,
+              text:
+                  "א. הוֹדוּ לַיהֹוָה קִרְאוּ בִשְׁמוֹ הוֹדִיעוּ בָעַמִּים עֲלִילוֹתָיו",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
             ),
           ],
         ),
@@ -2005,13 +2048,8 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "א. הוֹדוּ לַיהֹוָה קִרְאוּ בִשְׁמוֹ הוֹדִיעוּ בָעַמִּים עֲלִילוֹתָיו",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
+              text: "(צריך לקרוא לַדוֹנָי – א נחה)",
+              style: textStyleSimpleText_small,
             ),
           ],
         ),
@@ -2164,8 +2202,12 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "(בִּהְיוֹתָם - האות ה בשווא נח)",
-              style: textStyleSimpleText_small,
+              text: "יב. בִּהְיוֹתָם מְתֵי מִסְפָּר כִּמְעַט וְגָרִים בָּהּ",
+              style: textStyleSimpleText,
+            ),
+            TextSpan(
+              text: endOfPasokStr,
+              style: textStyleSimpleText,
             ),
           ],
         ),
@@ -2174,12 +2216,8 @@ class tikonHaklali {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: "יב. בִּהְיוֹתָם מְתֵי מִסְפָּר כִּמְעַט וְגָרִים בָּהּ",
-              style: textStyleSimpleText,
-            ),
-            TextSpan(
-              text: endOfPasokStr,
-              style: textStyleSimpleText,
+              text: "(בִּהְיוֹתָם - האות ה בשווא נח)",
+              style: textStyleSimpleText_small,
             ),
           ],
         ),
@@ -2660,6 +2698,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -2804,6 +2844,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -2932,6 +2974,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -2966,6 +3010,8 @@ class tikonHaklali {
       ),
       SizedBox(height: longSpace),
       CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -2977,6 +3023,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3017,6 +3064,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3040,6 +3088,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3056,6 +3105,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3074,6 +3124,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3097,6 +3148,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3117,6 +3169,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3168,6 +3221,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3204,6 +3258,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3241,6 +3296,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
@@ -3273,6 +3329,7 @@ class tikonHaklali {
       ),
       SizedBox(height: shortSpace),
       CustomRichText(
+        textAlign: TextAlign.justify,
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
