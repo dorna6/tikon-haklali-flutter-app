@@ -113,7 +113,7 @@ class MainPageBody {
               // tikon haklali text
               Padding(
                 padding:
-                    const EdgeInsets.only(left: 20.0, right: 20.0, top: 0.0),
+                    const EdgeInsets.only(left: 25.0, right: 25.0, top: 0.0),
                 child: tikonHaklali.column(context: context),
               ),
             ],
