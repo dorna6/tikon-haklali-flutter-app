@@ -74,63 +74,33 @@ class MainPageBody {
     return CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
-          pinned: true,
           expandedHeight: 400.0,
+          backgroundColor: Theme.of(context).colorScheme.background,
           flexibleSpace: FlexibleSpaceBar(
             background: MainPageBigImage.bigImage(context: context),
-            title: Align(
-              alignment: Alignment.bottomRight,
-              child: Text(
-                'התיקון הכללי',
-              ),
-            ),
           ),
-
-
-
         ),
         SliverList(
           delegate: SliverChildBuilderDelegate(
             (_, int index) {
-              return ListTile(
-                leading: Container(
-                    padding: EdgeInsets.all(8),
-                    width: 100,
-                    child: Placeholder()),
-                title: Text('Place ${index + 1}', textScaleFactor: 2),
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // spacer
+                  const SizedBox(height: 20),
+                  // tikon haklali text
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 25.0, right: 25.0, top: 0.0),
+                    child: tikonHaklali.column(context: context),
+                  ),
+                ],
               );
             },
-            childCount: 20,
+            childCount: 1,
           ),
         ),
       ],
     );
-
-    // return Scrollbar(
-    //   child: SingleChildScrollView(
-    //     controller: _scrollController,
-    //     child: Container(
-    //       width: MediaQuery.of(context).size.width,
-    //       child: Column(
-    //         crossAxisAlignment: CrossAxisAlignment.center,
-    //         children: [
-    //           // spacer
-    //           const SizedBox(height: 20),
-    //           // main big image
-    //           MainPageBigImage.bigImage(context: context),
-    //           // spacer
-    //           const SizedBox(height: 20),
-    //           // tikon haklali text
-    //           Padding(
-    //             padding:
-    //                 const EdgeInsets.only(left: 25.0, right: 25.0, top: 0.0),
-    //             child: tikonHaklali.column(context: context),
-    //           ),
-    //         ],
-    //       ),
-    //       // children
-    //     ),
-    //   ),
-    // );
   }
 }
