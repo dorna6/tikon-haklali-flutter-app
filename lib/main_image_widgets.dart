@@ -42,7 +42,7 @@ class MainPageBigImage {
         borderRadius: BorderRadius.circular(0),
         boxShadow: [boxShadowMainImg],
       ),
-      height: 300,
+      height: 400,
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
       child: Stack(

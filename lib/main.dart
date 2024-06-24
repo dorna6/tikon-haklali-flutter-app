@@ -78,14 +78,15 @@ class MainPage extends StatelessWidget {
     // main page widgets
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: MainPageAppBar.appBar(
-          context: context,
-          isDarkMode: isDarkMode,
-          themeProvider: themeProvider,
-          appTitleText: 'התיקון הכללי'),
+      // appBar: MainPageAppBar.appBar(
+      //     context: context,
+      //     isDarkMode: isDarkMode,
+      //     themeProvider: themeProvider,
+      //     appTitleText: 'התיקון הכללי'),
       body: MainPageBody.body(
         context: context,
         isDarkMode: isDarkMode,
+        themeProvider: themeProvider,
       ),
     );
   }
