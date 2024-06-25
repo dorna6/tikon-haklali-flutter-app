@@ -40,11 +40,11 @@ class MainPageBigImage {
     final BoxShadow boxShadowMainImg = BoxShadow(
         color: Theme.of(context).colorScheme.shadow,
         spreadRadius: 4,
-        blurRadius: 10);
+        blurRadius: 8);
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(0),
+        borderRadius: BorderRadius.circular(50),
         boxShadow: [boxShadowMainImg],
       ),
       // height: 450,
@@ -54,10 +54,10 @@ class MainPageBigImage {
         children: [
           Positioned.fill(
             child: ClipRRect(
-              // borderRadius: BorderRadius.only(
-              //   bottomLeft: Radius.circular(40.0),
-              //   bottomRight: Radius.circular(40.0),
-              // ),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(50.0),
+                bottomRight: Radius.circular(50.0),
+              ),
               child: Image.asset(mainImgPath[randomIndex_main_img],
                   fit: BoxFit.cover),
             ),
