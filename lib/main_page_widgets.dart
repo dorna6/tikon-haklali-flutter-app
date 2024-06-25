@@ -79,8 +79,8 @@ class MainPageBody {
         slivers: <Widget>[
           SliverAppBar(
             shadowColor: Colors.black87,
-            elevation: 2,
-            forceElevated: true,
+            elevation: 5,
+            // forceElevated: true,
             pinned: true,
             expandedHeight: 400.0,
             backgroundColor: Theme.of(context).colorScheme.background,
@@ -92,7 +92,10 @@ class MainPageBody {
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.parallax,
               centerTitle: false,
-              background: MainPageBigImage.bigImage(context: context),
+              background: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: MainPageBigImage.bigImage(context: context),
+              ),
             ),
           ),
           SliverList(
@@ -101,7 +104,6 @@ class MainPageBody {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-
                     // tikon haklali text
                     Padding(
                       padding: const EdgeInsets.only(

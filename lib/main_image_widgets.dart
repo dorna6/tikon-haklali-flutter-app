@@ -39,8 +39,8 @@ class MainPageBigImage {
     // define shadow variabels
     final BoxShadow boxShadowMainImg = BoxShadow(
         color: Theme.of(context).colorScheme.shadow,
-        spreadRadius: 0.7,
-        blurRadius: 6);
+        spreadRadius: 4,
+        blurRadius: 10);
 
     return Container(
       decoration: BoxDecoration(

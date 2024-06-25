@@ -72,7 +72,7 @@ class tikonHaklali {
     final String endOfPasokHeadStr = '  ';
 
     return Column(children: [
-      SizedBox(height: longSpace),
+      SizedBox(height: shortSpace),
       CustomRichText(
         textAlign: TextAlign.center,
         alignment: Alignment.center,
