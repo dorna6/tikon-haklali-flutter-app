@@ -40,7 +40,7 @@ class MainPageAppBar {
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 3.0),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary.withOpacity(0.6),
+              color: Theme.of(context).colorScheme.background.withOpacity(0.9),
               borderRadius: BorderRadius.circular(16.0),
             ),
             child: Text(
@@ -73,18 +73,16 @@ class MainPageBody {
     required ThemeProvider themeProvider,
   }) {
     final ScrollController _scrollController = ScrollController();
-
-    double sliver_state = 0.0;
-
     return Scrollbar(
       controller: _scrollController,
       child: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            shadowColor: Colors.black45,
-            elevation: 20.0,
+            shadowColor: Colors.black87,
+            elevation: 2,
+            forceElevated: true,
             pinned: true,
-            expandedHeight: 350.0,
+            expandedHeight: 400.0,
             backgroundColor: Theme.of(context).colorScheme.background,
             title: MainPageAppBar.row(
                 context: context,
@@ -92,6 +90,7 @@ class MainPageBody {
                 themeProvider: themeProvider,
                 appTitleText: 'התיקון הכללי'),
             flexibleSpace: FlexibleSpaceBar(
+              collapseMode: CollapseMode.parallax,
               centerTitle: false,
               background: MainPageBigImage.bigImage(context: context),
             ),
@@ -102,6 +101,7 @@ class MainPageBody {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+
                     // tikon haklali text
                     Padding(
                       padding: const EdgeInsets.only(

@@ -72,6 +72,19 @@ class tikonHaklali {
     final String endOfPasokHeadStr = '  ';
 
     return Column(children: [
+      SizedBox(height: longSpace),
+      CustomRichText(
+        textAlign: TextAlign.center,
+        alignment: Alignment.center,
+        textSpan: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: "התיקון הכללי",
+              style: textStyleSimpleTextHeadline.copyWith(fontSize: 50,fontWeight: FontWeight.w400,),
+            ),
+          ],
+        ),
+      ),
       SizedBox(height: shortSpace),
       CustomRichText(
         textAlign: TextAlign.center,
