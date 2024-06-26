@@ -67,7 +67,7 @@ class MainPageBigImage {
             children: [
               //
               Padding(
-                padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
+                padding: EdgeInsets.fromLTRB(30, 50, 30, 15),
                 child: Align(
                   alignment: Alignment.center,
                   child: RichText(
@@ -82,7 +82,7 @@ class MainPageBigImage {
               ),
               //
               Padding(
-                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 50),
                 child: Align(
                   alignment: Alignment.center,
                   child: RichText(
@@ -96,6 +96,11 @@ class MainPageBigImage {
                 ),
               ),
               //
+
+              Container(
+                height: 70,
+                child: Image.asset('assets/logo_noText_white.png'),
+              ),
 
               //
             ],
