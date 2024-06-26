@@ -3,6 +3,7 @@
 //
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
 
 //
@@ -25,13 +26,13 @@ class MainPageBigImage {
   }) {
     // define text style for the menu image
     final TextStyle textStyleMainImg = TextStyle(
-        fontSize: 30,
+        fontSize: 28,
         fontFamily: 'DavidLibre',
         fontWeight: FontWeight.w400,
         color: Color(0xFFffffff));
 
     final TextStyle textStyleMainImg_sub = TextStyle(
-        fontSize: 22,
+        fontSize: 20,
         fontFamily: 'DavidLibre',
         fontWeight: FontWeight.w400,
         color: Color(0xFFffffff));
@@ -67,7 +68,7 @@ class MainPageBigImage {
             children: [
               //
               Padding(
-                padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
+                padding: EdgeInsets.fromLTRB(30, 60, 30, 15),
                 child: Align(
                   alignment: Alignment.center,
                   child: RichText(
@@ -82,7 +83,7 @@ class MainPageBigImage {
               ),
               //
               Padding(
-                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                padding: EdgeInsets.fromLTRB(15, 0, 15, 40),
                 child: Align(
                   alignment: Alignment.center,
                   child: RichText(
@@ -97,7 +98,11 @@ class MainPageBigImage {
               ),
               //
 
-              //
+              Container(
+                height: 70,
+                child: Image.asset('assets/logo_noText_white.png'),
+              ),
+
             ],
           ),
         ],
