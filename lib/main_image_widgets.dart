@@ -13,31 +13,6 @@ import 'dart:math';
 // main image widget //
 ///////////////////////
 
-// set URLs
-final Uri url_facebook = Uri.parse(
-    'https://www.facebook.com/people/%D7%A7%D7%94%D7%99%D7%9C%D7%AA-%D7%91%D7%A0%D7%99-%D7%94%D7%A0%D7%A2%D7%95%D7%A8%D7%99%D7%9D/100038261288092/?locale=he_IL');
-final Uri url_instagram =
-    Uri.parse('https://www.instagram.com/bnei_haneorim/4');
-final Uri url_money = Uri.parse('https://nedar.im/7008494');
-
-Future<void> _openBrowser_facebook() async {
-  if (!await launchUrl(url_facebook)) {
-    throw Exception('Could not launch $url_facebook');
-  }
-}
-
-Future<void> _openBrowser_instagram() async {
-  if (!await launchUrl(url_instagram)) {
-    throw Exception('Could not launch $url_instagram');
-  }
-}
-
-Future<void> _openBrowser_money() async {
-  if (!await launchUrl(url_money)) {
-    throw Exception('Could not launch $url_money');
-  }
-}
-
 // generate random number for main image text
 final random1 = Random();
 final randomIndex_main_img_text = random1.nextInt(mainImgText.length);
@@ -93,7 +68,7 @@ class MainPageBigImage {
             children: [
               //
               Padding(
-                padding: EdgeInsets.fromLTRB(30, 70, 30, 15),
+                padding: EdgeInsets.fromLTRB(30, 60, 30, 15),
                 child: Align(
                   alignment: Alignment.center,
                   child: RichText(
@@ -124,23 +99,10 @@ class MainPageBigImage {
               //
 
               Container(
-                height: 60,
+                height: 70,
                 child: Image.asset('assets/logo_noText_white.png'),
               ),
-              // Padding(
-              //     padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-              //     child: Text(
-              //       'ק"ק בני הנעורים',
-              //       style: textStyleMainImg_sub.copyWith(fontSize: 18),
-              //     ),
-              // ),
-              // Padding(
-              //   padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-              //   child: Text(
-              //     'בראשות הרב אופיר אור שליט"א',
-              //     style: textStyleMainImg_sub.copyWith(fontSize: 18),
-              //   ),
-              // ),
+
             ],
           ),
         ],
