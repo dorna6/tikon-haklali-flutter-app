@@ -83,7 +83,7 @@ class MainPageBigImage {
               ),
               //
               Padding(
-                padding: EdgeInsets.fromLTRB(15, 0, 15, 40),
+                padding: EdgeInsets.fromLTRB(15, 0, 15, 30),
                 child: Align(
                   alignment: Alignment.center,
                   child: RichText(
