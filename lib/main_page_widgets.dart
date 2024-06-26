@@ -82,7 +82,7 @@ class MainPageBody {
             elevation: 5,
             // forceElevated: true,
             pinned: true,
-            expandedHeight: 450.0,
+            expandedHeight: 400.0,
             backgroundColor: Theme.of(context).colorScheme.background,
             title: MainPageAppBar.row(
                 context: context,
