@@ -35,6 +35,7 @@ import 'package:provider/provider.dart';
 // my imports
 import 'theme_widgets.dart';
 import 'main_page_widgets.dart';
+import 'main_text_widget.dart';
 
 //
 //
@@ -71,18 +72,17 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // theme provider object
     final themeProvider = Provider.of<ThemeProvider>(context);
-
     // check if dark mode is set
     bool isDarkMode = themeProvider.getCurrentTheme();
 
     // main page widgets
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-
       body: MainPageBody.body(
         context: context,
         isDarkMode: isDarkMode,
         themeProvider: themeProvider,
+        appbarTitleText: 'התיקון הכללי',
       ),
     );
   }

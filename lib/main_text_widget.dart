@@ -11,7 +11,7 @@ import 'custom_text_widget.dart';
 // make a peket of text class //
 ////////////////////////////////
 
-class tikonHaklali {
+class mainTextWidget {
   static Column column({
     required BuildContext context,
   }) {
