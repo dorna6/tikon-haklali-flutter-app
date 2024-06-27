@@ -227,7 +227,7 @@ class tikonHaklali {
             ),
             TextSpan(
               text: " (ויכוון: אל'ף למ'ד, אל'ף למ'ד ה'י יו'ד מ'ם)",
-              style: textStyleSimpleText_small,
+              style: textStyleSimpleText_smallLight,
             ),
             TextSpan(
               text: " שֶׁהֵם עוֹלִים בְּמִסְפָּר תפ'ה,"
@@ -5030,7 +5030,7 @@ class tikonHaklali {
               text: '(אם יאמר חס ושלום בשביל מקרה שנזדמן '
                   'לו באותו הלילה, יאמר: וּבִפְרָט כָּל הַטִּפּוֹת שֶׁיָּצְאוּ מִמֶּנִּי בְּלַיְלָה זֶה עַל יְדֵי מִקְרֵה לַיְלָה,'
                   ' שֶׁקָּרָה לִי בַּעֲווֹנוֹתַי הָרַבִּים)',
-              style: textStyleSimpleText_small,
+              style: textStyleSimpleText_smallLight,
             ),
             TextSpan(
               text:
@@ -5173,7 +5173,7 @@ class tikonHaklali {
             ),
             TextSpan(
               text: '(ויכוון: אל"ף למ"ד, אל"ף למ"ד ה"י יו"ד מ"ם)',
-              style: textStyleSimpleText_small,
+              style: textStyleSimpleText_smallLight,
             ),
             TextSpan(
               text: ' שֶׁהֵם עוֹלִים בְּמִסְפָּר תפ"ה',
@@ -5181,7 +5181,7 @@ class tikonHaklali {
             ),
             TextSpan(
               text: ' [אַרְבַּע מֵאוֹת שְׁמוֹנִים וְחָמֵשׁ]',
-              style: textStyleSimpleText_small,
+              style: textStyleSimpleText_smallLight,
             ),
             TextSpan(
               text:
@@ -5221,7 +5221,7 @@ class tikonHaklali {
                   ' הַקָּדוֹשׁ הַזֶּה אֲשֶׁר הִבְטִיחָנוּ בְּחַיָּיו הַקְּדוֹשִׁים, לַעֲמֹד בְּעֶזְרָתֵנוּ סֶלָה תָּמִיד, כְּשֶׁנָּבוֹא עַל'
                   ' קִבְרוֹ הַקָּדוֹשׁ וְנִתֵּן פְּרוּטָה לִצְדָקָה וְנֹאמַר אֵלּוּ הָעֲשָׂרָה קַפִּיטְל תְּהִלִּים. וְהִנֵּה עָשִׂיתִי מַה'
                   ' שֶּׁמֻּטָּל עָלַי, עֲשֵׂה מַה שֶּׁעָלֶיךָ)',
-              style: textStyleSimpleText_small,
+              style: textStyleSimpleText_smallLight,
             ),
             TextSpan(
               text:
@@ -5256,7 +5256,7 @@ class tikonHaklali {
               text:
                   '(אם נמצא על קברו הקדוש יוסיף: וּבִפְרָט עַל מְקוֹם צִיּוּן '
                   'הַקָּדוֹשׁ הַזֶּה, עָזְרֵנִי בִּזְכוּת הַצַּדִּיקִים הַגְּנוּזִים פֹּה)',
-              style: textStyleSimpleText_small,
+              style: textStyleSimpleText_smallLight,
             ),
             TextSpan(
               text: ', וְרַחֵם עָלַי, וְתֶן לִי כֹּחַ וּגְבוּרָה מֵאִתְּךָ,'
