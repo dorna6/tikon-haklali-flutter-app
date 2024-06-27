@@ -82,7 +82,6 @@ class MainPage extends StatelessWidget {
         context: context,
         isDarkMode: isDarkMode,
         themeProvider: themeProvider,
-        appbarTitleText: 'התיקון הכללי',
       ),
     );
   }

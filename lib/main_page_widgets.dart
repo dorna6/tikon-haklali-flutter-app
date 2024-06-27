@@ -25,7 +25,6 @@ class MainPageAppBar {
     required BuildContext context,
     required bool isDarkMode,
     required ThemeProvider themeProvider,
-    required String appTitleText,
   }) {
     return Row(
       children: [
@@ -46,7 +45,7 @@ class MainPageAppBar {
               borderRadius: BorderRadius.circular(16.0),
             ),
             child: Text(
-              appTitleText,
+              'התיקון הכללי',
               style: TextStyle(
                 fontSize: 26,
                 fontFamily: 'DavidLibre',
@@ -73,7 +72,6 @@ class MainPageBody {
     required BuildContext context,
     required bool isDarkMode,
     required ThemeProvider themeProvider,
-    required String appbarTitleText,
   }) {
     final ScrollController _scrollController = ScrollController();
 
@@ -91,8 +89,7 @@ class MainPageBody {
             title: MainPageAppBar.row(
                 context: context,
                 isDarkMode: isDarkMode,
-                themeProvider: themeProvider,
-                appTitleText: appbarTitleText),
+                themeProvider: themeProvider),
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.parallax,
               centerTitle: false,
