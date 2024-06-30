@@ -87,7 +87,7 @@ class MainPageBody {
       body: Stack(
         children: <Widget>[
           Image.asset(
-            "assets/img1.png",
+            "assets/aa.gif",
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
