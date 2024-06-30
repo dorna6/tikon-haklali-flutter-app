@@ -74,15 +74,14 @@ class MainPageBody {
     required bool isDarkMode,
     required ThemeProvider themeProvider,
   }) {
-    final ScrollController _scrollController = ScrollController();
-
+ 
     // text styles
     final TextStyle styl1 = TextStyle(
-        fontSize: 26,
+        fontSize: 28,
         fontFamily: 'DavidLibre',
         fontWeight: FontWeight.w400,
         color: Colors.white,
-        height: 1.4);
+        height: 1.3);
 
     return Scaffold(
       body: Stack(
