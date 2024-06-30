@@ -5,13 +5,14 @@
 // package imports
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 // my imports
 import 'theme_widgets.dart';
 import 'main_image_widgets.dart';
 import 'dark_mode_switch.dart';
 import 'blessing_widget.dart';
-import 'main_text_widget.dart';
+import 'custom_text_widget.dart';
 
 //
 //
@@ -68,65 +69,118 @@ class MainPageAppBar {
 ////////////////////////////////
 
 class MainPageBody {
-  static Scrollbar body({
+  static Scaffold body({
     required BuildContext context,
     required bool isDarkMode,
     required ThemeProvider themeProvider,
   }) {
     final ScrollController _scrollController = ScrollController();
 
-    return Scrollbar(
-      controller: _scrollController,
-      child: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            shadowColor: Colors.black87,
-            elevation: 5,
-            // forceElevated: true,
-            pinned: true,
-            expandedHeight: 350.0,
-            backgroundColor: Theme.of(context).colorScheme.background,
-            title: MainPageAppBar.row(
-                context: context,
-                isDarkMode: isDarkMode,
-                themeProvider: themeProvider),
-            flexibleSpace: FlexibleSpaceBar(
-              collapseMode: CollapseMode.parallax,
-              centerTitle: false,
-              background: Padding(
-                padding: const EdgeInsets.only(bottom: 20),
-                child: MainPageBigImage.bigImage(context: context),
-              ),
-            ),
+    // text styles
+    final TextStyle styl1 = TextStyle(
+        fontSize: 26,
+        fontFamily: 'DavidLibre',
+        fontWeight: FontWeight.w400,
+        color: Colors.white,
+        height: 1.4);
+
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Image.asset(
+            "assets/img1.png",
+            fit: BoxFit.cover,
+            height: double.infinity,
+            width: double.infinity,
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (_, int index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // main text
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 25.0, right: 25.0, top: 0.0),
-                      child: mainTextWidget.column(context: context),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              //
+              //
+              Padding(
+                padding: EdgeInsets.fromLTRB(20, 70, 20, 0),
+                child: CustomRichText(
+                  textAlign: TextAlign.center,
+                  alignment: Alignment.center,
+                  textSpan: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: "וְדַרְכִּי, ",
+                        style: styl1,
+                      ),
+                      TextSpan(
+                        text:
+                            "כְּשֶׁבָּא הַיּוֹם אֲנִי מוֹסֵר כָּל הַתְּנוּעוֹת שֶׁלִּי וְשֶׁל בָּנַי וְהַתְּלוּיִים בִּי עַל ",
+                        style: styl1,
+                      ),
+                      TextSpan(
+                        text: "הַשֵּׁם יִתְבָּרַךְ ",
+                        style: styl1,
+                      ),
+                      TextSpan(
+                        text:
+                            "שֶׁיִּהְיֶה הַכֹּל כִּרְצוֹנוֹ יִתְבָּרַךְ, וְזֶה טוֹב מְאֹד.",
+                        style: styl1,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              //
+              //
+              Padding(
+                padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                child: Text(
+                  "(שיחות הר”ן, שיחה א)",
+                  textAlign: TextAlign.center,
+                  style: styl1.copyWith(fontSize: 18),
+                ),
+              ),
+              //
+              //
+              Spacer(),
+              //
+              //
+              Padding(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 30),
+                child: Text(
+                  "התיקון הכללי",
+                  textAlign: TextAlign.center,
+                  style: styl1.copyWith(fontSize: 50),
+                ),
+              ),
+              //
+              //
+              Padding(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 50),
+                child: TextButton(
+                  onPressed: () {
+                    // Handle button press action
+                  },
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.white, width: 1.0),
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
                     ),
+                    padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.symmetric(horizontal: 35.0, vertical: 18.0)),
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.transparent),
+                  ),
+                  child: Text(
+                    "למעבר לקריאה",
+                    style: styl1.copyWith(fontSize: 20),
+                  ),
+                ),
+              ),
 
-                    // Spacer between elements
-                    SizedBox(
-                        height: 15, width: MediaQuery.of(context).size.width),
-
-                    // blessing widget
-                    BlessingWidget(),
-
-                    // end spacer
-                    SizedBox(
-                        height: 50, width: MediaQuery.of(context).size.width),
-                  ],
-                );
-              },
-              childCount: 1,
-            ),
+              //
+              //
+            ],
           ),
         ],
       ),
