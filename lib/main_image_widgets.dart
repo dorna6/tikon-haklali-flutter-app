@@ -19,9 +19,7 @@ final randomIndex_main_img_text = random1.nextInt(mainImgText.length);
 final random2 = Random();
 final randomIndex_main_img = random2.nextInt(mainImgPath.length);
 
-
-
-class MainPageBigImage extends StatefulWidget  {
+class MainPageBigImage extends StatefulWidget {
   final BuildContext context;
 
   const MainPageBigImage({
@@ -49,7 +47,7 @@ class _MainPageBigImage extends State<MainPageBigImage>
 
     _animation1 = Tween(begin: 0.0, end: 1.0).animate(_controller1);
 
-    Future.delayed(const Duration(milliseconds: 800), () {
+    Future.delayed(const Duration(milliseconds: 600), () {
       _controller1.forward();
     });
   }
@@ -62,7 +60,6 @@ class _MainPageBigImage extends State<MainPageBigImage>
 
   @override
   Widget build(BuildContext context) {
-
     // define text style for the menu image
     final TextStyle textStyleMainImg = TextStyle(
         fontSize: 28,
@@ -110,49 +107,38 @@ class _MainPageBigImage extends State<MainPageBigImage>
                 padding: EdgeInsets.fromLTRB(30, 70, 30, 15),
                 child: Align(
                   alignment: Alignment.center,
-                  child:
-
-                  FadeTransition(
-                  opacity: _animation1,
-                  child:
-
-                  RichText(
-                    textDirection: TextDirection.rtl,
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      text: mainImgText[randomIndex_main_img_text][0],
-                      style: textStyleMainImg.copyWith(height: 1.4),
+                  child: FadeTransition(
+                    opacity: _animation1,
+                    child: RichText(
+                      textDirection: TextDirection.rtl,
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: mainImgText[randomIndex_main_img_text][0],
+                        style: textStyleMainImg.copyWith(height: 1.4),
+                      ),
                     ),
                   ),
-
-
-                  ),
-
-
                 ),
               ),
               //
 
-    FadeTransition(
-    opacity: _animation1,
-    child:
-
-              Padding(
-                padding: EdgeInsets.fromLTRB(15, 0, 15, 30),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: RichText(
-                    textDirection: TextDirection.rtl,
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      text: mainImgText[randomIndex_main_img_text][1],
-                      style: textStyleMainImg_sub,
+              FadeTransition(
+                opacity: _animation1,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(15, 0, 15, 30),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: RichText(
+                      textDirection: TextDirection.rtl,
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: mainImgText[randomIndex_main_img_text][1],
+                        style: textStyleMainImg_sub,
+                      ),
                     ),
                   ),
                 ),
               ),
-
-    ),
             ],
           ),
         ],

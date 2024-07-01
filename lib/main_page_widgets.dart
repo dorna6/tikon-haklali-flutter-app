@@ -101,7 +101,7 @@ class _AnimatedTextsState extends State<MainPageBody>
 
     _animation1 = Tween(begin: 0.0, end: 1.0).animate(_controller1);
 
-    Future.delayed(const Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 400), () {
       _controller1.forward();
     });
   }
