@@ -11,10 +11,69 @@ import 'custom_text_widget.dart';
 // make a peket of text class //
 ////////////////////////////////
 
-class mainTextWidget {
-  static Column column({
-    required BuildContext context,
-  }) {
+class mainTextWidget extends StatefulWidget {
+  final BuildContext context;
+
+  const mainTextWidget({
+    Key? key,
+    required this.context,
+  }) : super(key: key);
+
+  @override
+  _mainTextWidget createState() => _mainTextWidget();
+}
+
+class _mainTextWidget extends State<mainTextWidget>
+    with TickerProviderStateMixin {
+  late final AnimationController _controller1;
+  late final Animation<double> _animation1;
+  late final AnimationController _controller2;
+  late final Animation<double> _animation2;
+  late final AnimationController _controller3;
+  late final Animation<double> _animation3;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller1 = AnimationController(
+      duration: const Duration(seconds: 1, milliseconds: 0),
+      vsync: this,
+    );
+    _controller2 = AnimationController(
+      duration: const Duration(seconds: 1, milliseconds: 0),
+      vsync: this,
+    );
+    _controller3 = AnimationController(
+      duration: const Duration(seconds: 1, milliseconds: 0),
+      vsync: this,
+    );
+
+    _animation1 = Tween(begin: 0.0, end: 1.0).animate(_controller1);
+    _animation2 = Tween(begin: 0.0, end: 1.0).animate(_controller2);
+    _animation3 = Tween(begin: 0.0, end: 1.0).animate(_controller3);
+
+    Future.delayed(const Duration(milliseconds: 1200), () {
+      _controller1.forward();
+    });
+    Future.delayed(const Duration(milliseconds: 1500), () {
+      _controller2.forward();
+    });
+    Future.delayed(const Duration(milliseconds: 1800), () {
+      _controller3.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller1.dispose();
+    _controller2.dispose();
+    _controller3.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     // spaces between rows
     final double longSpace = 50.0;
     final double shortSpace = 20.0;
@@ -73,104 +132,131 @@ class mainTextWidget {
 
     return Column(children: [
       SizedBox(height: shortSpace),
-      CustomRichText(
-        textAlign: TextAlign.center,
-        alignment: Alignment.center,
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text: "התיקון הכללי",
-              style: textStyleSimpleTextHeadline.copyWith(fontSize: 50,fontWeight: FontWeight.w400,),
-            ),
-          ],
+
+      FadeTransition(
+        opacity: _animation1,
+        child: CustomRichText(
+          textAlign: TextAlign.center,
+          alignment: Alignment.center,
+          textSpan: TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                text: "התיקון הכללי",
+                style: textStyleSimpleTextHeadline.copyWith(
+                  fontSize: 50,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+
+      SizedBox(height: shortSpace),
+
+      FadeTransition(
+        opacity: _animation2,
+        child: CustomRichText(
+          textAlign: TextAlign.center,
+          alignment: Alignment.center,
+          textSpan: TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                text: "הקדמה",
+                style: textStyleSimpleTextHeadline,
+              ),
+            ],
+          ),
         ),
       ),
       SizedBox(height: shortSpace),
-      CustomRichText(
-        textAlign: TextAlign.center,
-        alignment: Alignment.center,
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text: "הקדמה",
-              style: textStyleSimpleTextHeadline,
-            ),
-          ],
-        ),
-      ),
-      SizedBox(height: shortSpace),
-      CustomRichText(
-        textAlign: TextAlign.justify,
-        textDirection: TextDirection.rtl,
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text:
-                  "רַבֵּנוּ זִכְרוֹנוֹ לִבְרָכָה יִחֵד שְׁנֵי עֵדִים נֶאֱמָנִים, תַּלְמִידוֹ רַבִּי אַהֲרֹן מִבְּרֶסְלֶב"
-                  " וְתַלְמִידוֹ רַבִּי נַפְתָּלִי מִנֶּעמְרוֹב, וְהִבְטִיחַ וְאָמַר בִּפְנֵיהֶם, שֶׁמִּי שֶׁיָּבוֹא עַל"
-                  " קִבְרוֹ וְיֹאמַר שָׁם אֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים וְיִתֵּן פְּרוּטָה לִצְדָקָה עֲבוּרוֹ,"
-                  " אֲפִלּוּ אִם גָּדְלוּ וְעָצְמוּ עֲוֹנוֹתָיו וַחֲטָאָיו מְאֹד מְאֹד חַס וְשָׁלוֹם, אֲזַי אֶתְאַמֵּץ"
-                  " וְאֶשְׁתַּדֵּל לָאֹרֶךְ וְלָרֹחַב לְהוֹשִׁיעוֹ וּלְתַקְּנוֹ. וְאָמַר בְּזוֹ הַלָּשׁוֹן: אִיךְ וֶועל"
-                  " מִיךְ לֵייגֶען אִין דֶער לֶענְג אוּן אִין דֶער בְּרֵייט אִיך זָאל אִיהְם אַ טוֹבָה"
-                  " טְהוּן, בַּיי דִי פֵּאוֹת וֶועל אִיך אִיהְם אַרוֹיס צִיהֶן פוּן שְׁאוֹל תַּחְתִּיוֹת"
-                  " (אֶשְׁתַּטֵּחַ לָאֹרֶךְ וְלָרֹחַב לְהֵיטִיב עִמּוֹ. בְּפֵאוֹתָיו אֶמְשְׁכֵהוּ וְאוֹצִיאֵהוּ מִשְּׁאוֹל "
-                  "תַּחְתִּיּוֹת). וַאֲנִי חָזָק בְּכָל הַדְּבָרִים שֶׁלִּי, אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ"
-                  " הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא תִּקּוּן הַכְּלָלִי,"
-                  " כִּי כָּל עֲבֵרָה יֵשׁ לָהּ תִּקּוּן מְיֻחָד, אֲבָל תִּקּוּן הַזֶּה הוּא תִּקּוּן הַכְּלָלִי"
-                  " (שיחות הר'ן קמ'א).",
-              style: textStyleSimpleText_smallLight,
-            ),
-          ],
+
+      FadeTransition(
+        opacity: _animation3,
+        child: CustomRichText(
+          textAlign: TextAlign.justify,
+          textDirection: TextDirection.rtl,
+          textSpan: TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                text:
+                    "רַבֵּנוּ זִכְרוֹנוֹ לִבְרָכָה יִחֵד שְׁנֵי עֵדִים נֶאֱמָנִים, תַּלְמִידוֹ רַבִּי אַהֲרֹן מִבְּרֶסְלֶב"
+                    " וְתַלְמִידוֹ רַבִּי נַפְתָּלִי מִנֶּעמְרוֹב, וְהִבְטִיחַ וְאָמַר בִּפְנֵיהֶם, שֶׁמִּי שֶׁיָּבוֹא עַל"
+                    " קִבְרוֹ וְיֹאמַר שָׁם אֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים וְיִתֵּן פְּרוּטָה לִצְדָקָה עֲבוּרוֹ,"
+                    " אֲפִלּוּ אִם גָּדְלוּ וְעָצְמוּ עֲוֹנוֹתָיו וַחֲטָאָיו מְאֹד מְאֹד חַס וְשָׁלוֹם, אֲזַי אֶתְאַמֵּץ"
+                    " וְאֶשְׁתַּדֵּל לָאֹרֶךְ וְלָרֹחַב לְהוֹשִׁיעוֹ וּלְתַקְּנוֹ. וְאָמַר בְּזוֹ הַלָּשׁוֹן: אִיךְ וֶועל"
+                    " מִיךְ לֵייגֶען אִין דֶער לֶענְג אוּן אִין דֶער בְּרֵייט אִיך זָאל אִיהְם אַ טוֹבָה"
+                    " טְהוּן, בַּיי דִי פֵּאוֹת וֶועל אִיך אִיהְם אַרוֹיס צִיהֶן פוּן שְׁאוֹל תַּחְתִּיוֹת"
+                    " (אֶשְׁתַּטֵּחַ לָאֹרֶךְ וְלָרֹחַב לְהֵיטִיב עִמּוֹ. בְּפֵאוֹתָיו אֶמְשְׁכֵהוּ וְאוֹצִיאֵהוּ מִשְּׁאוֹל "
+                    "תַּחְתִּיּוֹת). וַאֲנִי חָזָק בְּכָל הַדְּבָרִים שֶׁלִּי, אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ"
+                    " הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא תִּקּוּן הַכְּלָלִי,"
+                    " כִּי כָּל עֲבֵרָה יֵשׁ לָהּ תִּקּוּן מְיֻחָד, אֲבָל תִּקּוּן הַזֶּה הוּא תִּקּוּן הַכְּלָלִי"
+                    " (שיחות הר'ן קמ'א).",
+                style: textStyleSimpleText_smallLight,
+              ),
+            ],
+          ),
         ),
       ),
       SizedBox(height: longSpace),
-      CustomRichText(
-        textAlign: TextAlign.center,
-        alignment: Alignment.center,
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text: "יהי רצון קודם אמירת תהילים",
-              style: textStyleSimpleTextHeadline,
-            ),
-          ],
+
+      FadeTransition(
+        opacity: _animation3,
+        child: CustomRichText(
+          textAlign: TextAlign.center,
+          alignment: Alignment.center,
+          textSpan: TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                text: "יהי רצון קודם אמירת תהילים",
+                style: textStyleSimpleTextHeadline,
+              ),
+            ],
+          ),
         ),
       ),
       SizedBox(height: shortSpace),
-      CustomRichText(
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text: "אין לומר יהי רצון זה ביום שבת.",
-              style: textStyleSimpleText_small,
-            ),
-          ],
+
+      FadeTransition(
+        opacity: _animation3,
+        child: CustomRichText(
+          textSpan: TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                text: "אין לומר יהי רצון זה ביום שבת.",
+                style: textStyleSimpleText_small,
+              ),
+            ],
+          ),
         ),
       ),
-      CustomRichText(
-        textAlign: TextAlign.justify,
-        textSpan: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-              text:
-                  "יְהִי רָצוֹן מִלְפָנֶיךָ, יְהֹוָה אֱלֹהֵינוּ וְאֱלֹהֵי אֲבוֹתֵינוּ, הַבּוֹחֵר בְּדָוִד עַבְדוֹ וּבְזַרְעוֹ אַחֲרָיו,"
-                  " וְהַבּוֹחֵר בְּשִירוֹת וְתִשְבָּחוֹת, שֶׁתֵּפֶן בְּרַחֲמִים אֶל קְרִיאַת מִזְמוֹרֵי תְהִלִּים שֶׁאֶקְרָא, כְּאִלוּ אֳמָרָם דָוִד"
-                  " הַמֶלֶךְ עָלָיו הַשָׁלוֹם בְּעַצְמוֹ, זְכוּתוֹ יָגֵן עָלֵינוּ. וְתַעֲמוֹד לָנוּ זְכוּת פְּסוּקֵי הַתְּהִלִּים, וּזְכוּת"
-                  " תֵבוֹתֵיהֶם, וְאוֹתִיוֹתֵיהֶם, וּנְקוּדוֹתֵיהֶם, וְטַעֲמֵיהֶם, וְהָשֵמוֹת הָיוֹצְאִים מֵהֶם מֵרָאשֵׁי תֵבוֹת וּמִסוֹפֵי"
-                  " תֵבוֹת, לְכַפֵּר חַטֹאתֵינוּ וַעֲווֹנוֹתֵינוּ וּפְשָעֵינוּ, וּלְזַמֵר עָרִיצִים וְלְהַכְרִית כָּל הַחוֹחִים וְהַקוֹצִים"
-                  " הַסוֹבְבִים אֶת הַשׁוֹשַׁנָה הָעֶלְיוֹנָה, וּלְחַבֵּר אֵשֶׁת נְעוּרִים עִם דוֹדָה בְּאַהֲבָה וְאַחֲוָה וְרֵעוּת. וּמִשָׁם "
-                  "יִמָשֵׁךְ לָנוּ שֶׁפָע לְנֶפֶשׁ רוּחַ וּנְשָׁמָה לְטַהֲרֵנוּ מֵעֲווֹנוֹתֵינוּ וְלִסְלוֹחַ חַטֹאתֵינוּ וּלְכַפֵּר פְּשָׁעֵינוּ,"
-                  " כְּמוֹ שֶׁסָלַחְתָ לְדָוִד שֶׁאָמָר מִזְמוֹרִים אֵלוּ לְפָנֶיךָ, כּמוֹ שֶׁנֶאֱמַר: גַם יְהֹוָה הֶעֱבִיר חַטָאתְךָ לֹא"
-                  " תָמוּת. וְאַל תִקָחֵנוּ מֵהָעוֹלָם הַזֶה קוֹדֶם זְמַנֵנוּ, וְנִזְכֶּה לְחַיִים אֲרוּכִּים טוֹבִים וּמְתוּקָנִים,"
-                  " בְּאוֹפָן שֶׁנוּכַל לְתַקֵן אֶת אֲשֶׁר שִׁיחַתְנוּ. וּזְכוּת דָוִד הָמֶלֶךְ עָלָיו הַשָׁלוֹם, תָגֵן עָלֵינוּ "
-                  "וּבַעֲדֵנוּ שֶׁתַאֲרִיךְ אָפְּךָ עַד שׁוּבֵנוּ אֵלָיךָ בִּתְשוּבָה שְׁלֵמָה לְפָנֶיךָ. וּמֵאוֹצָר מַתְנָת חִנָם חָנֵנוּ"
-                  " כְּדִכְתִיב: וְחַנוֹתִי אֶת אֲשֶׁר אָחוֹן וְרִחַמְתִי אֶת אֲשֶׁר אֲרַחֵם. וּכְשֵׁם שֶׁאָנוּ אוֹמְרִים לְפָנֶיךָ"
-                  " שִׁירָה בָּעוֹלָם הַזֶה, כָּךְ נִזְכֶּה לוֹמַר לְפָנֶיךְ יְהֹוָה אֱלֹהֵינוּ שִׁיר וּשְׁבָחָה לָעוֹלָם הַבָּא."
-                  " וְעַל יְדֵי אֲמִירַת תְהִלִים תִתְעוֹרֵר חֲבַצֶלֶת הַשָרוֹן, וְלָשִיר בְּקוֹל נָעִים בְּגִילַת "
-                  "וְרַנֵן, כְּבוֹד הַלְבָנוֹן נִתַן לָה, הוֹד וְהָדָר בְּבֵית אֱלֹהֵינוּ, בִּמְהֵרָה בְּיָמֵינוּ, אָמֵן סֶלָה.",
-              style: textStyleSimpleText_smallLight,
-            ),
-          ],
+      FadeTransition(
+        opacity: _animation3,
+        child: CustomRichText(
+          textAlign: TextAlign.justify,
+          textSpan: TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                text:
+                    "יְהִי רָצוֹן מִלְפָנֶיךָ, יְהֹוָה אֱלֹהֵינוּ וְאֱלֹהֵי אֲבוֹתֵינוּ, הַבּוֹחֵר בְּדָוִד עַבְדוֹ וּבְזַרְעוֹ אַחֲרָיו,"
+                    " וְהַבּוֹחֵר בְּשִירוֹת וְתִשְבָּחוֹת, שֶׁתֵּפֶן בְּרַחֲמִים אֶל קְרִיאַת מִזְמוֹרֵי תְהִלִּים שֶׁאֶקְרָא, כְּאִלוּ אֳמָרָם דָוִד"
+                    " הַמֶלֶךְ עָלָיו הַשָׁלוֹם בְּעַצְמוֹ, זְכוּתוֹ יָגֵן עָלֵינוּ. וְתַעֲמוֹד לָנוּ זְכוּת פְּסוּקֵי הַתְּהִלִּים, וּזְכוּת"
+                    " תֵבוֹתֵיהֶם, וְאוֹתִיוֹתֵיהֶם, וּנְקוּדוֹתֵיהֶם, וְטַעֲמֵיהֶם, וְהָשֵמוֹת הָיוֹצְאִים מֵהֶם מֵרָאשֵׁי תֵבוֹת וּמִסוֹפֵי"
+                    " תֵבוֹת, לְכַפֵּר חַטֹאתֵינוּ וַעֲווֹנוֹתֵינוּ וּפְשָעֵינוּ, וּלְזַמֵר עָרִיצִים וְלְהַכְרִית כָּל הַחוֹחִים וְהַקוֹצִים"
+                    " הַסוֹבְבִים אֶת הַשׁוֹשַׁנָה הָעֶלְיוֹנָה, וּלְחַבֵּר אֵשֶׁת נְעוּרִים עִם דוֹדָה בְּאַהֲבָה וְאַחֲוָה וְרֵעוּת. וּמִשָׁם "
+                    "יִמָשֵׁךְ לָנוּ שֶׁפָע לְנֶפֶשׁ רוּחַ וּנְשָׁמָה לְטַהֲרֵנוּ מֵעֲווֹנוֹתֵינוּ וְלִסְלוֹחַ חַטֹאתֵינוּ וּלְכַפֵּר פְּשָׁעֵינוּ,"
+                    " כְּמוֹ שֶׁסָלַחְתָ לְדָוִד שֶׁאָמָר מִזְמוֹרִים אֵלוּ לְפָנֶיךָ, כּמוֹ שֶׁנֶאֱמַר: גַם יְהֹוָה הֶעֱבִיר חַטָאתְךָ לֹא"
+                    " תָמוּת. וְאַל תִקָחֵנוּ מֵהָעוֹלָם הַזֶה קוֹדֶם זְמַנֵנוּ, וְנִזְכֶּה לְחַיִים אֲרוּכִּים טוֹבִים וּמְתוּקָנִים,"
+                    " בְּאוֹפָן שֶׁנוּכַל לְתַקֵן אֶת אֲשֶׁר שִׁיחַתְנוּ. וּזְכוּת דָוִד הָמֶלֶךְ עָלָיו הַשָׁלוֹם, תָגֵן עָלֵינוּ "
+                    "וּבַעֲדֵנוּ שֶׁתַאֲרִיךְ אָפְּךָ עַד שׁוּבֵנוּ אֵלָיךָ בִּתְשוּבָה שְׁלֵמָה לְפָנֶיךָ. וּמֵאוֹצָר מַתְנָת חִנָם חָנֵנוּ"
+                    " כְּדִכְתִיב: וְחַנוֹתִי אֶת אֲשֶׁר אָחוֹן וְרִחַמְתִי אֶת אֲשֶׁר אֲרַחֵם. וּכְשֵׁם שֶׁאָנוּ אוֹמְרִים לְפָנֶיךָ"
+                    " שִׁירָה בָּעוֹלָם הַזֶה, כָּךְ נִזְכֶּה לוֹמַר לְפָנֶיךְ יְהֹוָה אֱלֹהֵינוּ שִׁיר וּשְׁבָחָה לָעוֹלָם הַבָּא."
+                    " וְעַל יְדֵי אֲמִירַת תְהִלִים תִתְעוֹרֵר חֲבַצֶלֶת הַשָרוֹן, וְלָשִיר בְּקוֹל נָעִים בְּגִילַת "
+                    "וְרַנֵן, כְּבוֹד הַלְבָנוֹן נִתַן לָה, הוֹד וְהָדָר בְּבֵית אֱלֹהֵינוּ, בִּמְהֵרָה בְּיָמֵינוּ, אָמֵן סֶלָה.",
+                style: textStyleSimpleText_smallLight,
+              ),
+            ],
+          ),
         ),
       ),
       SizedBox(height: longSpace),
@@ -2870,8 +2956,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "תָּשֵׁב אֱנוֹשׁ עַד דַּכָּא וַתֹּאמֶר שׁוּבוּ בְנֵי אָדָם",
+              text: "תָּשֵׁב אֱנוֹשׁ עַד דַּכָּא וַתֹּאמֶר שׁוּבוּ בְנֵי אָדָם",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -3061,13 +3146,11 @@ class mainTextWidget {
               style: textStyleSimpleText,
             ),
             TextSpan(
-              text:
-              "(וְרוֹהְבָּם - ה בשווא נח) ",
+              text: "(וְרוֹהְבָּם - ה בשווא נח) ",
               style: textStyleSimpleText_pasokNotes,
             ),
             TextSpan(
-              text:
-              "עָמָל וָאָוֶן כִּי גָז חִישׁ וַנָּעֻפָה",
+              text: "עָמָל וָאָוֶן כִּי גָז חִישׁ וַנָּעֻפָה",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -3199,8 +3282,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "שַׂמְּחֵנוּ כִּימוֹת עִנִּיתָנוּ שְׁנוֹת רָאִינוּ רָעָה",
+              text: "שַׂמְּחֵנוּ כִּימוֹת עִנִּיתָנוּ שְׁנוֹת רָאִינוּ רָעָה",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -3226,8 +3308,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "יֵרָאֶה אֶל עֲבָדֶיךָ פָּעֳלֶךָ וַהֲדָרְךָ עַל בְּנֵיהֶם",
+              text: "יֵרָאֶה אֶל עֲבָדֶיךָ פָּעֳלֶךָ וַהֲדָרְךָ עַל בְּנֵיהֶם",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -3294,18 +3375,15 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "הוֹדוּ לַיהֹוָה ",
+              text: "הוֹדוּ לַיהֹוָה ",
               style: textStyleSimpleText,
             ),
             TextSpan(
-              text:
-              "(לַדוֹנָי – א נחה) ",
+              text: "(לַדוֹנָי – א נחה) ",
               style: textStyleSimpleText_pasokNotes,
             ),
             TextSpan(
-              text:
-              "קִרְאוּ בִשְׁמוֹ הוֹדִיעוּ בָעַמִּים עֲלִילוֹתָיו",
+              text: "קִרְאוּ בִשְׁמוֹ הוֹדִיעוּ בָעַמִּים עֲלִילוֹתָיו",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -3569,8 +3647,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "לֵאמֹר לְךָ אֶתֵּן אֶת אֶרֶץ כְּנָעַן חֶבֶל נַחֲלַתְכֶם",
+              text: "לֵאמֹר לְךָ אֶתֵּן אֶת אֶרֶץ כְּנָעַן חֶבֶל נַחֲלַתְכֶם",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -3657,8 +3734,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "לֹא הִנִּיחַ אָדָם לְעָשְׁקָם וַיּוֹכַח עֲלֵיהֶם מְלָכִים",
+              text: "לֹא הִנִּיחַ אָדָם לְעָשְׁקָם וַיּוֹכַח עֲלֵיהֶם מְלָכִים",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -3814,8 +3890,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "שָׁלַח מֶלֶךְ וַיַתִּירֵהוּ מֹשֵׁל עַמִּים וַיְפַתְּחֵהוּ",
+              text: "שָׁלַח מֶלֶךְ וַיַתִּירֵהוּ מֹשֵׁל עַמִּים וַיְפַתְּחֵהוּ",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -3893,8 +3968,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "וַיָּבֹא יִשְׂרָאֵל מִצְרָיִם וְיַעֲקֹב גָּר בְּאֶרֶץ חָם",
+              text: "וַיָּבֹא יִשְׂרָאֵל מִצְרָיִם וְיַעֲקֹב גָּר בְּאֶרֶץ חָם",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -3946,8 +4020,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "הָפַךְ לִבָּם לִשְׂנֹא עַמּוֹ לְהִתְנַכֵּל בַּעֲבָדָיו",
+              text: "הָפַךְ לִבָּם לִשְׂנֹא עַמּוֹ לְהִתְנַכֵּל בַּעֲבָדָיו",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -4155,8 +4228,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "וַיַּךְ גַּפְנָם וּתְאֵנָתָם וַיְשַׁבֵּר עֵץ גְּבוּלָם",
+              text: "וַיַּךְ גַּפְנָם וּתְאֵנָתָם וַיְשַׁבֵּר עֵץ גְּבוּלָם",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -4288,8 +4360,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "שָׂמַח מִצְרַיִם בְּצֵאתָם כִּי נָפַל פַּחְדָּם עֲלֵיהֶם",
+              text: "שָׂמַח מִצְרַיִם בְּצֵאתָם כִּי נָפַל פַּחְדָּם עֲלֵיהֶם",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -4367,8 +4438,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "פָּתַח צוּר וַיָּזוּבוּ מָיִם הָלְכוּ בַּצִּיּוֹת נָהָר",
+              text: "פָּתַח צוּר וַיָּזוּבוּ מָיִם הָלְכוּ בַּצִּיּוֹת נָהָר",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -4727,8 +4797,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "אַשְׁרֵי שֶׁיֹּאחֵז וְנִפֵּץ אֶת עֹלָלַיִךְ אֶל הַסָּלַע",
+              text: "אַשְׁרֵי שֶׁיֹּאחֵז וְנִפֵּץ אֶת עֹלָלַיִךְ אֶל הַסָּלַע",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -4821,8 +4890,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "הַלְלוּהוּ בְּתֵקַע שׁוֹפָר הַלְלוּהוּ בְּנֵבֶל וְכִנּוֹר",
+              text: "הַלְלוּהוּ בְּתֵקַע שׁוֹפָר הַלְלוּהוּ בְּנֵבֶל וְכִנּוֹר",
               style: textStyleSimpleText,
             ),
             TextSpan(
@@ -4848,8 +4916,7 @@ class mainTextWidget {
         textSpan: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text:
-                  "הַלְלוּהוּ בְתֹף וּמָחוֹל הַלְלוּהוּ בְּמִנִּים וְעֻגָב",
+              text: "הַלְלוּהוּ בְתֹף וּמָחוֹל הַלְלוּהוּ בְּמִנִּים וְעֻגָב",
               style: textStyleSimpleText,
             ),
             TextSpan(

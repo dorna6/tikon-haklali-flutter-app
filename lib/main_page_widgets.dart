@@ -67,14 +67,53 @@ class MainPageAppBar {
 /////// main page body /////////
 ////////////////////////////////
 
-class MainPageBody {
-  static Scrollbar body({
-    required BuildContext context,
-    required bool isDarkMode,
-    required ThemeProvider themeProvider,
-  }) {
-    final ScrollController _scrollController = ScrollController();
+class MainPageBody extends StatefulWidget {
+  final BuildContext context;
+  final bool isDarkMode;
+  final ThemeProvider themeProvider;
 
+  const MainPageBody({
+    Key? key,
+    required this.context,
+    required this.isDarkMode,
+    required this.themeProvider,
+  }) : super(key: key);
+
+  @override
+  _AnimatedTextsState createState() => _AnimatedTextsState();
+}
+
+class _AnimatedTextsState extends State<MainPageBody>
+    with TickerProviderStateMixin {
+  late final AnimationController _controller1;
+  late final Animation<double> _animation1;
+
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller1 = AnimationController(
+      duration: const Duration(seconds: 1, milliseconds: 0),
+      vsync: this,
+    );
+
+    _animation1 = Tween(begin: 0.0, end: 1.0).animate(_controller1);
+
+    Future.delayed(const Duration(milliseconds: 500), () {
+      _controller1.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller1.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scrollbar(
       controller: _scrollController,
       child: CustomScrollView(
@@ -86,17 +125,21 @@ class MainPageBody {
             expandedHeight: 350.0,
             backgroundColor: Theme.of(context).colorScheme.background,
             //
-            title: MainPageAppBar.row(
-                context: context,
-                isDarkMode: isDarkMode,
-                themeProvider: themeProvider),
+            title: FadeTransition(
+              opacity: _animation1,
+              child: MainPageAppBar.row(
+                  context: context,
+                  isDarkMode: widget.isDarkMode,
+                  themeProvider: widget.themeProvider),
+            ),
+
             //
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.parallax,
               centerTitle: false,
               background: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
-                child: MainPageBigImage.bigImage(context: context),
+                child: MainPageBigImage(context: context),
               ),
             ),
             //
@@ -109,10 +152,11 @@ class MainPageBody {
                   children: [
                     //
                     // main text
+
                     Padding(
                       padding: const EdgeInsets.only(
                           left: 25.0, right: 25.0, top: 0.0),
-                      child: mainTextWidget.column(context: context),
+                      child: mainTextWidget(context: context),
                     ),
 
                     // Spacer between elements
