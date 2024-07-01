@@ -3,7 +3,6 @@
 //
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
 
 //
@@ -20,10 +19,47 @@ final randomIndex_main_img_text = random1.nextInt(mainImgText.length);
 final random2 = Random();
 final randomIndex_main_img = random2.nextInt(mainImgPath.length);
 
-class MainPageBigImage {
-  static Container bigImage({
-    required BuildContext context,
-  }) {
+class MainPageBigImage extends StatefulWidget {
+  final BuildContext context;
+
+  const MainPageBigImage({
+    Key? key,
+    required this.context,
+  }) : super(key: key);
+
+  @override
+  _MainPageBigImage createState() => _MainPageBigImage();
+}
+
+class _MainPageBigImage extends State<MainPageBigImage>
+    with TickerProviderStateMixin {
+  late final AnimationController _controller1;
+  late final Animation<double> _animation1;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller1 = AnimationController(
+      duration: const Duration(seconds: 1, milliseconds: 0),
+      vsync: this,
+    );
+
+    _animation1 = Tween(begin: 0.0, end: 1.0).animate(_controller1);
+
+    Future.delayed(const Duration(milliseconds: 600), () {
+      _controller1.forward();
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller1.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     // define text style for the menu image
     final TextStyle textStyleMainImg = TextStyle(
         fontSize: 28,
@@ -71,38 +107,38 @@ class MainPageBigImage {
                 padding: EdgeInsets.fromLTRB(30, 70, 30, 15),
                 child: Align(
                   alignment: Alignment.center,
-                  child: RichText(
-                    textDirection: TextDirection.rtl,
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      text: mainImgText[randomIndex_main_img_text][0],
-                      style: textStyleMainImg.copyWith(height: 1.4),
-                    ),
-                  ),
-                ),
-              ),
-              //
-              Padding(
-                padding: EdgeInsets.fromLTRB(15, 0, 15, 30),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: RichText(
-                    textDirection: TextDirection.rtl,
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      text: mainImgText[randomIndex_main_img_text][1],
-                      style: textStyleMainImg_sub,
+                  child: FadeTransition(
+                    opacity: _animation1,
+                    child: RichText(
+                      textDirection: TextDirection.rtl,
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: mainImgText[randomIndex_main_img_text][0],
+                        style: textStyleMainImg.copyWith(height: 1.4),
+                      ),
                     ),
                   ),
                 ),
               ),
               //
 
-              // Container(
-              //   height: 70,
-              //   child: Image.asset('assets/logo_noText_white.png'),
-              // ),
-
+              FadeTransition(
+                opacity: _animation1,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(15, 0, 15, 30),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: RichText(
+                      textDirection: TextDirection.rtl,
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: mainImgText[randomIndex_main_img_text][1],
+                        style: textStyleMainImg_sub,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ],
@@ -269,13 +305,4 @@ const List<String> mainImgPath = [
   'assets/main_img_23.png',
   'assets/main_img_24.png',
   'assets/main_img_25.png',
-  'assets/main_img_26.png',
-  'assets/main_img_27.png',
-  'assets/main_img_28.png',
-  'assets/main_img_29.png',
-  'assets/main_img_30.png',
-  'assets/main_img_31.png',
-  'assets/main_img_32.png',
-  'assets/main_img_33.png',
-  'assets/main_img_34.png',
 ];
