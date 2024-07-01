@@ -82,14 +82,15 @@ class MainPageBody {
           SliverAppBar(
             shadowColor: Colors.black87,
             elevation: 5,
-            // forceElevated: true,
             pinned: true,
             expandedHeight: 350.0,
             backgroundColor: Theme.of(context).colorScheme.background,
+            //
             title: MainPageAppBar.row(
                 context: context,
                 isDarkMode: isDarkMode,
                 themeProvider: themeProvider),
+            //
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.parallax,
               centerTitle: false,
@@ -98,6 +99,7 @@ class MainPageBody {
                 child: MainPageBigImage.bigImage(context: context),
               ),
             ),
+            //
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
@@ -105,6 +107,7 @@ class MainPageBody {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    //
                     // main text
                     Padding(
                       padding: const EdgeInsets.only(

@@ -86,7 +86,17 @@ class MainPageBigImage {
                 padding: EdgeInsets.fromLTRB(15, 0, 15, 30),
                 child: Align(
                   alignment: Alignment.center,
-                  child: RichText(
+                  child:
+
+
+                  AnimatedOpacity(
+    opacity: true ? 1.0 : 0.0,
+    duration: Duration(seconds: 2),
+    child:
+
+
+
+                  RichText(
                     textDirection: TextDirection.rtl,
                     textAlign: TextAlign.center,
                     text: TextSpan(
@@ -94,6 +104,10 @@ class MainPageBigImage {
                       style: textStyleMainImg_sub,
                     ),
                   ),
+
+
+                  ),
+
                 ),
               ),
               //
@@ -269,13 +283,4 @@ const List<String> mainImgPath = [
   'assets/main_img_23.png',
   'assets/main_img_24.png',
   'assets/main_img_25.png',
-  'assets/main_img_26.png',
-  'assets/main_img_27.png',
-  'assets/main_img_28.png',
-  'assets/main_img_29.png',
-  'assets/main_img_30.png',
-  'assets/main_img_31.png',
-  'assets/main_img_32.png',
-  'assets/main_img_33.png',
-  'assets/main_img_34.png',
 ];
