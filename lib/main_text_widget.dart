@@ -1,4 +1,6 @@
 // package import
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 // my import
@@ -40,6 +42,7 @@ class _mainTextWidget extends State<mainTextWidget>
       duration: const Duration(seconds: 1, milliseconds: 0),
       vsync: this,
     );
+
     _controller2 = AnimationController(
       duration: const Duration(seconds: 1, milliseconds: 0),
       vsync: this,

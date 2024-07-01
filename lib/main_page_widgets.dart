@@ -124,6 +124,7 @@ class _AnimatedTextsState extends State<MainPageBody>
             pinned: true,
             expandedHeight: 350.0,
             backgroundColor: Theme.of(context).colorScheme.background,
+            toolbarTextStyle: TextStyle(color: Colors.white),
             //
             title: FadeTransition(
               opacity: _animation1,
