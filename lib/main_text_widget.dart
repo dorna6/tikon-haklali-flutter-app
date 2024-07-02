@@ -56,13 +56,13 @@ class _mainTextWidget extends State<mainTextWidget>
     _animation2 = Tween(begin: 0.0, end: 1.0).animate(_controller2);
     _animation3 = Tween(begin: 0.0, end: 1.0).animate(_controller3);
 
-    Future.delayed(const Duration(milliseconds: 800), () {
+    Future.delayed(const Duration(milliseconds: 600), () {
       _controller1.forward();
     });
-    Future.delayed(const Duration(milliseconds: 1000), () {
+    Future.delayed(const Duration(milliseconds: 800), () {
       _controller2.forward();
     });
-    Future.delayed(const Duration(milliseconds: 1200), () {
+    Future.delayed(const Duration(milliseconds: 1000), () {
       _controller3.forward();
     });
   }
