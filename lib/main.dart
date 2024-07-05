@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft])
-      .then((_) {
-    runApp(MyApp());
-  });
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Parallax",
-      debugShowCheckedModeBanner: false,
+      // debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -35,8 +32,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double rateSeven = 0;
   double rateEight = 90;
 
-  String asset;
-  double top;
+  String asset = "";
+  double top = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -46,33 +43,28 @@ class _MyHomePageState extends State<MyHomePage> {
           if (v is ScrollUpdateNotification) {
             //only if scroll update notification is triggered
             setState(() {
-              rateEight -= v.scrollDelta / 1;
-              rateSeven -= v.scrollDelta / 1.5;
-              rateSix -= v.scrollDelta / 2;
-              rateFive -= v.scrollDelta / 2.5;
-              rateFour -= v.scrollDelta / 3;
-              rateThree -= v.scrollDelta / 3.5;
-              rateTwo -= v.scrollDelta / 4;
-              rateOne -= v.scrollDelta / 4.5;
-              rateZero -= v.scrollDelta / 5;
+              if (v.scrollDelta != null) {
+                rateFour -= v.scrollDelta! / 9;
+                rateThree -= v.scrollDelta! / 8;
+                rateTwo -= v.scrollDelta! / 7;
+                rateOne -= v.scrollDelta! / 6;
+                rateZero -= v.scrollDelta! / 5;
+              }
             });
           }
+          return true;
         },
         child: Stack(
           children: <Widget>[
-            ParallaxWidget(top: rateZero, asset: "parallax0"),
-            ParallaxWidget(top: rateOne, asset: "parallax1"),
-            ParallaxWidget(top: rateTwo, asset: "parallax2"),
-            ParallaxWidget(top: rateThree, asset: "parallax3"),
-            ParallaxWidget(top: rateFour, asset: "parallax4"),
-            ParallaxWidget(top: rateFive, asset: "parallax5"),
-            ParallaxWidget(top: rateSix, asset: "parallax6"),
-            ParallaxWidget(top: rateSeven, asset: "parallax7"),
-            ParallaxWidget(top: rateEight, asset: "parallax8"),
+            ParallaxWidget(top: rateZero, asset: "assets/img1.png"),
+            ParallaxWidget(top: rateOne, asset: "assets/img2.png"),
+            ParallaxWidget(top: rateTwo, asset: "assets/img3.png"),
+            ParallaxWidget(top: rateThree, asset: "assets/img4.png"),
+            ParallaxWidget(top: rateFour, asset: "assets/img5.png"),
             ListView(
               children: <Widget>[
                 Container(
-                  height: 600,
+                  height: 1080,
                   color: Colors.transparent,
                 ),
                 Container(
@@ -146,9 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class ParallaxWidget extends StatelessWidget {
   const ParallaxWidget({
-    Key key,
-    @required this.top,
-    @required this.asset,
+    Key? key,
+    required this.top,
+    required this.asset,
   }) : super(key: key);
 
   final double top;
@@ -162,7 +154,7 @@ class ParallaxWidget extends StatelessWidget {
       child: Container(
         height: 550,
         width: 900,
-        child: Image.asset("assets/$asset.png", fit: BoxFit.cover),
+        child: Image.asset("$asset", fit: BoxFit.cover),
       ),
     );
   }
