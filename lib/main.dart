@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'blessing_widget.dart';
+import 'main_text_widget.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -22,15 +25,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double rateZero = 0;
-  double rateOne = 0;
-  double rateTwo = 0;
-  double rateThree = 0;
-  double rateFour = 0;
-  double rateFive = 0;
-  double rateSix = 0;
-  double rateSeven = 0;
-  double rateEight = 90;
+  double rate0 = 0;
+  double rate1 = 0;
+  double rate2 = 0;
+  double rate3 = 0;
+  double rate4 = 0;
 
   String asset = "";
   double top = 0.0;
@@ -44,11 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
             //only if scroll update notification is triggered
             setState(() {
               if (v.scrollDelta != null) {
-                rateFour -= v.scrollDelta! / 9;
-                rateThree -= v.scrollDelta! / 8;
-                rateTwo -= v.scrollDelta! / 7;
-                rateOne -= v.scrollDelta! / 6;
-                rateZero -= v.scrollDelta! / 5;
+                rate0 -= v.scrollDelta! / 1.7;
+                rate1 -= v.scrollDelta! / 1.6;
+                rate2 -= v.scrollDelta! / 1.35;
+                rate3 -= v.scrollDelta! / 1.2;
+                rate4 -= v.scrollDelta! / 1;
+
               }
             });
           }
@@ -56,76 +56,56 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         child: Stack(
           children: <Widget>[
-            ParallaxWidget(top: rateZero, asset: "assets/img1.png"),
-            ParallaxWidget(top: rateOne, asset: "assets/img2.png"),
-            ParallaxWidget(top: rateTwo, asset: "assets/img3.png"),
-            ParallaxWidget(top: rateThree, asset: "assets/img4.png"),
-            ParallaxWidget(top: rateFour, asset: "assets/img5.png"),
+            Container(
+              height: MediaQuery.of(context).size.height,
+              color: Color(0xFFe0eff6),
+            ),
+            ParallaxWidget(top: rate0, asset: "assets/img5.png"),
+            ParallaxWidget(top: rate1, asset: "assets/img4.png"),
+            ParallaxWidget(top: rate2, asset: "assets/img3.png"),
+            ParallaxWidget(top: rate3, asset: "assets/img2.png"),
+            ParallaxWidget(top: rate4, asset: "assets/img1.png"),
             ListView(
               children: <Widget>[
                 Container(
-                  height: 1080,
+                  height: MediaQuery.of(context).size.height*0.95,
                   color: Colors.transparent,
                 ),
+
                 Container(
-                  color: Color(0xff210002),
-                  width: double.infinity,
+                  color: Theme.of(context).colorScheme.background,
+                  width: MediaQuery.of(context).size.width,
                   padding: EdgeInsets.only(top: 70),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Parallax In",
-                        style: TextStyle(
-                            fontSize: 30,
-                            fontFamily: "MontSerrat-ExtraLight",
-                            letterSpacing: 1.8,
-                            color: Color(0xffffaf00)),
-                      ),
-                      Text(
-                        "Flutter",
-                        style: TextStyle(
-                            fontSize: 51,
-                            fontFamily: "MontSerrat-Regular",
-                            letterSpacing: 1.8,
-                            color: Color(0xffffaf00)),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        width: 190,
-                        child: Divider(
-                          height: 1,
-                          color: Color(0xffffaf00),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Made By",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontFamily: "Montserrat-Extralight",
-                          letterSpacing: 1.3,
-                          color: Color(0xffffaf00),
-                        ),
-                      ),
-                      Text(
-                        "The CS Guy",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: "Montserrat-Regular",
-                          letterSpacing: 1.8,
-                          color: Color(0xffffaf00),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 50,
-                      )
-                    ],
-                  ),
+                  child:
+
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    //
+                    // main text
+
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: 25.0, right: 25.0, top: 0.0),
+                      child: mainTextWidget(context: context),
+                    ),
+
+                    // Spacer between elements
+                    SizedBox(
+                        height: 15, width: MediaQuery.of(context).size.width),
+
+                    // blessing widget
+                    BlessingWidget(),
+
+                    // end spacer
+                    SizedBox(
+                        height: 50, width: MediaQuery.of(context).size.width),
+                  ],
+                )
+
+
+
+
                 ),
               ],
             )
@@ -149,12 +129,12 @@ class ParallaxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: -45,
+      left: 0,
       top: top,
       child: Container(
-        height: 550,
-        width: 900,
-        child: Image.asset("$asset", fit: BoxFit.cover),
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Image.asset("$asset", fit: BoxFit.fitWidth),
       ),
     );
   }
