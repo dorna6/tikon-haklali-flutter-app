@@ -1,88 +1,168 @@
-/*
-how to create a copy of the project:
-1. create a new empty flutter project
-
-2. delet the 'lib' and 'test' folder
-
-3. copy from the original project and folders: 'lib', 'fonts', 'assets' and
-  past in the new project.
-
-4. delet pubspec.yaml and copy from the original project
-
-5. in the project tree open: 'android/app/src/main/AndroidManifest.xml'
-  edit this:
-  <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <application
-        android:label="<YOUR-APP-NAME>"
-
-6. in the teminal run the commands:
-  'flutter pub get'
-  'flutter pub run flutter_launcher_icons:main'
-
- */
-
-//
-//
-//
-///////////////////////
-/////// imports ///////
-///////////////////////
-
-// package imports
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-// my imports
-import 'theme_widgets.dart';
-import 'main_page_widgets.dart';
-
-
-//
-//
-//
-///////////////////////////
-/////// entry point ///////
-///////////////////////////
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      child: const MyApp(),
-    ),
-  );
+  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft])
+      .then((_) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-      theme: Provider.of<ThemeProvider>(context).themeDataStyle,
-      home: MainPage(),
+      title: "Parallax",
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
     );
   }
 }
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  double rateZero = 0;
+  double rateOne = 0;
+  double rateTwo = 0;
+  double rateThree = 0;
+  double rateFour = 0;
+  double rateFive = 0;
+  double rateSix = 0;
+  double rateSeven = 0;
+  double rateEight = 90;
+
+  String asset;
+  double top;
 
   @override
   Widget build(BuildContext context) {
-    // theme provider object
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    // check if dark mode is set
-    bool isDarkMode = themeProvider.getCurrentTheme();
-
-    // main page widgets
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: MainPageBody(
-        context: context,
-        isDarkMode: isDarkMode,
-        themeProvider: themeProvider,
+      body: NotificationListener(
+        onNotification: (v) {
+          if (v is ScrollUpdateNotification) {
+            //only if scroll update notification is triggered
+            setState(() {
+              rateEight -= v.scrollDelta / 1;
+              rateSeven -= v.scrollDelta / 1.5;
+              rateSix -= v.scrollDelta / 2;
+              rateFive -= v.scrollDelta / 2.5;
+              rateFour -= v.scrollDelta / 3;
+              rateThree -= v.scrollDelta / 3.5;
+              rateTwo -= v.scrollDelta / 4;
+              rateOne -= v.scrollDelta / 4.5;
+              rateZero -= v.scrollDelta / 5;
+            });
+          }
+        },
+        child: Stack(
+          children: <Widget>[
+            ParallaxWidget(top: rateZero, asset: "parallax0"),
+            ParallaxWidget(top: rateOne, asset: "parallax1"),
+            ParallaxWidget(top: rateTwo, asset: "parallax2"),
+            ParallaxWidget(top: rateThree, asset: "parallax3"),
+            ParallaxWidget(top: rateFour, asset: "parallax4"),
+            ParallaxWidget(top: rateFive, asset: "parallax5"),
+            ParallaxWidget(top: rateSix, asset: "parallax6"),
+            ParallaxWidget(top: rateSeven, asset: "parallax7"),
+            ParallaxWidget(top: rateEight, asset: "parallax8"),
+            ListView(
+              children: <Widget>[
+                Container(
+                  height: 600,
+                  color: Colors.transparent,
+                ),
+                Container(
+                  color: Color(0xff210002),
+                  width: double.infinity,
+                  padding: EdgeInsets.only(top: 70),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Parallax In",
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: "MontSerrat-ExtraLight",
+                            letterSpacing: 1.8,
+                            color: Color(0xffffaf00)),
+                      ),
+                      Text(
+                        "Flutter",
+                        style: TextStyle(
+                            fontSize: 51,
+                            fontFamily: "MontSerrat-Regular",
+                            letterSpacing: 1.8,
+                            color: Color(0xffffaf00)),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        width: 190,
+                        child: Divider(
+                          height: 1,
+                          color: Color(0xffffaf00),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "Made By",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontFamily: "Montserrat-Extralight",
+                          letterSpacing: 1.3,
+                          color: Color(0xffffaf00),
+                        ),
+                      ),
+                      Text(
+                        "The CS Guy",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: "Montserrat-Regular",
+                          letterSpacing: 1.8,
+                          color: Color(0xffffaf00),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 50,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ParallaxWidget extends StatelessWidget {
+  const ParallaxWidget({
+    Key key,
+    @required this.top,
+    @required this.asset,
+  }) : super(key: key);
+
+  final double top;
+  final String asset;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: -45,
+      top: top,
+      child: Container(
+        height: 550,
+        width: 900,
+        child: Image.asset("assets/$asset.png", fit: BoxFit.cover),
       ),
     );
   }
