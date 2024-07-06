@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 rate2 -= v.scrollDelta! / 1.35;
                 rate3 -= v.scrollDelta! / 1.2;
                 rate4 -= v.scrollDelta! / 1;
-                rate5 -= v.scrollDelta! / 2;
+                rate5 -= v.scrollDelta! / 1.8;
                 rate6 -= v.scrollDelta! / 1.15;
               }
             });
@@ -64,16 +64,18 @@ class _MyHomePageState extends State<MyHomePage> {
               height: double.infinity,
               color: Color(0xFFe0eff6),
             ),
-            ParallaxWidgetText2(
-                top: rate5,
-                text:
-                    "אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא תִּקּוּן הַכְּלָלִי."),
+
             ParallaxWidget(top: rate0, asset: "assets/img5.png"),
             ParallaxWidget(top: rate1, asset: "assets/img4.png"),
             ParallaxWidget(top: rate2, asset: "assets/img3.png"),
             ParallaxWidget(top: rate3, asset: "assets/img2.png"),
             ParallaxWidget(top: rate4, asset: "assets/img1.png"),
-            ParallaxWidgetText(top: rate6, text: " "),
+
+            ParallaxWidgetText2(
+                top: rate5,
+                text:
+                "אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא תִּקּוּן הַכְּלָלִי."),
+            ParallaxWidgetText(top: rate5, text: "התיקון הכללי"),
             ListView(
               children: <Widget>[
                 Container(
@@ -156,7 +158,7 @@ class ParallaxWidgetText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       width: MediaQuery.of(context).size.width,
-      top: top + MediaQuery.of(context).size.height / 2.2,
+      top: top + 50,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: CustomRichText(
@@ -174,11 +176,11 @@ class ParallaxWidgetText extends StatelessWidget {
                     shadows: [
                       Shadow(
                         offset: Offset(0.0, 0.0),
-                        blurRadius: 20.0,
-                        color: Color(0xFF000000).withOpacity(0.4),
+                        blurRadius: 10.0,
+                        color: Color(0xFF000000).withOpacity(0.1),
                       ),
                     ],
-                    color: Color(0xFF000000).withOpacity(0.6)),
+                    color: Color(0xFF000000).withOpacity(0.5)),
               ),
             ],
           ),
@@ -202,7 +204,7 @@ class ParallaxWidgetText2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       width: MediaQuery.of(context).size.width,
-      top: top + 50,
+      top: top + MediaQuery.of(context).size.width / 3.3,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: CustomRichText(
