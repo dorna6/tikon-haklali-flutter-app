@@ -64,18 +64,15 @@ class _MyHomePageState extends State<MyHomePage> {
               height: double.infinity,
               color: Color(0xFFe0eff6),
             ),
-
             ParallaxWidget(top: rate0, asset: "assets/img5.png"),
             ParallaxWidget(top: rate1, asset: "assets/img4.png"),
             ParallaxWidget(top: rate2, asset: "assets/img3.png"),
             ParallaxWidget(top: rate3, asset: "assets/img2.png"),
             ParallaxWidget(top: rate4, asset: "assets/img1.png"),
-
             ParallaxWidgetText2(
-                top: rate5,
-                text:
-                "אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא תִּקּוּן הַכְּלָלִי."),
-            ParallaxWidgetText(top: rate5, text: "התיקון הכללי"),
+              top: rate5,
+            ),
+            // ParallaxWidgetText(top: rate5),
             ListView(
               children: <Widget>[
                 Container(
@@ -148,11 +145,9 @@ class ParallaxWidgetText extends StatelessWidget {
   const ParallaxWidgetText({
     Key? key,
     required this.top,
-    required this.text,
   }) : super(key: key);
 
   final double top;
-  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -164,11 +159,10 @@ class ParallaxWidgetText extends StatelessWidget {
         child: CustomRichText(
           textAlign: TextAlign.center,
           alignment: Alignment.center,
-          textSpan:
-          TextSpan(
+          textSpan: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                text: text,
+                text: "התיקון הכללי",
                 style: TextStyle(
                     fontSize: 50,
                     fontFamily: 'DavidLibre',
@@ -194,17 +188,15 @@ class ParallaxWidgetText2 extends StatelessWidget {
   const ParallaxWidgetText2({
     Key? key,
     required this.top,
-    required this.text,
   }) : super(key: key);
 
   final double top;
-  final String text;
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
       width: MediaQuery.of(context).size.width,
-      top: top + MediaQuery.of(context).size.width / 3.3,
+      top: top + 60,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: CustomRichText(
@@ -213,7 +205,8 @@ class ParallaxWidgetText2 extends StatelessWidget {
           textSpan: TextSpan(
             children: <TextSpan>[
               TextSpan(
-                text: text,
+                text:
+                    "אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא ",
                 style: TextStyle(
                     fontSize: 28,
                     fontFamily: 'DavidLibre',
@@ -226,7 +219,23 @@ class ParallaxWidgetText2 extends StatelessWidget {
                         color: Color(0xff000000).withOpacity(0.1),
                       ),
                     ],
-                    color: Color(0xFF3F3F3F).withOpacity(0.3)),
+                    color: Color(0xFF3F3F3F).withOpacity(0.35)),
+              ),
+              TextSpan(
+                text: "תִּקּוּן הַכְּלָלִי.",
+                style: TextStyle(
+                    fontSize: 32,
+                    fontFamily: 'DavidLibre',
+                    fontWeight: FontWeight.w500,
+                    height: 1.3,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 5.0,
+                        color: Color(0xff000000).withOpacity(0.1),
+                      ),
+                    ],
+                    color: Color(0xFF3F3F3F).withOpacity(0.6)),
               ),
             ],
           ),
