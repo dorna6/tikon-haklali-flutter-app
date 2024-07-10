@@ -72,11 +72,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ParallaxWidgetText2(
               top: rate5,
             ),
-            // ParallaxWidgetText(top: rate5),
             ListView(
               children: <Widget>[
                 Container(
-                  height: MediaQuery.of(context).size.height * 1.0,
+                  height: 450,
                   color: Colors.transparent,
                 ),
                 Container(
@@ -130,14 +129,19 @@ class ParallaxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 0,
       top: top,
       child: Container(
-        height: MediaQuery.of(context).size.height * 1.2,
+        height: 480,
         width: MediaQuery.of(context).size.width,
-        child: Image.asset("$asset", fit: BoxFit.fitWidth),
+        child: FittedBox(
+          fit: BoxFit.fitHeight,
+          child: Image.asset(
+            "$asset",
+          ),
+        ),
       ),
     );
+
   }
 }
 
@@ -196,7 +200,7 @@ class ParallaxWidgetText2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       width: MediaQuery.of(context).size.width,
-      top: top + 60,
+      top: top + 40,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: CustomRichText(
