@@ -18,7 +18,7 @@ class LightTheme {
     colorScheme: ColorScheme.light(
       background: const Color(0xFFf6f6f8), // background color
       primary: const Color(0xFFffffff), // menu line color
-      secondary: const Color(0xFF000000), // text color
+      secondary: const Color(0xFF484848), // text color
       onSecondary: const Color(0xFF8a8a8a), // lighter text color
       shadow: const Color(0xFF5e606b), // shadow
     ),

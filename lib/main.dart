@@ -34,7 +34,7 @@ import 'package:provider/provider.dart';
 
 // my imports
 import 'theme_widgets.dart';
-import 'main_page_widgets.dart';
+import 'main_page_body.dart';
 
 
 //

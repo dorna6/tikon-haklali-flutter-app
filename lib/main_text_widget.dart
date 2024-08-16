@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 // my import
 import 'custom_text_widget.dart';
+import 'main_image_widgets.dart';
 
 //
 //
@@ -5061,6 +5062,16 @@ class _mainTextWidget extends State<mainTextWidget>
         ),
       ),
       SizedBox(height: longSpace),
+
+      //
+      //
+      //
+      MainPageBigImage(context: context),
+      //
+      //
+      //
+      SizedBox(height: longSpace),
+
       CustomRichText(
         textAlign: TextAlign.center,
         alignment: Alignment.center,
