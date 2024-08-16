@@ -162,20 +162,23 @@ class _AnimatedTextsState extends State<MainPageBody>
                       ParallaxWidget(top: rate3, asset: "assets/img3.png"),
                       ParallaxWidget(top: rate2, asset: "assets/img2.png"),
 
-                      Positioned(
-                        width: MediaQuery.of(context).size.width,
-                        top: rate0 + 80,
-                        child: FadeTransition(
-                          opacity: _animation2,
-                          child: ParallaxWidgetText(
+                      // Positioned(
+                      //   width: MediaQuery.of(context).size.width,
+                      //   top: rate0 + 80,
+                      //   child: FadeTransition(
+                      //     opacity: _animation2,
+                      //     child:
+
+                          ParallaxWidgetText(
                             top: rate0,
                             main_text:
                                 "אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא ",
                             sub_text: "תִּקּוּן הַכְּלָלִי.",
                             opacity: 1,
                           ),
-                        ),
-                      ),
+
+                      //   ),
+                      // ),
 
                       // ParallaxWidgetText(
                       //   top: rate0,
