@@ -137,24 +137,24 @@ class _mainTextWidget extends State<mainTextWidget>
     return Column(children: [
       SizedBox(height: shortSpace),
 
-      FadeTransition(
-        opacity: _animation1,
-        child: CustomRichText(
-          textAlign: TextAlign.center,
-          alignment: Alignment.center,
-          textSpan: TextSpan(
-            children: <TextSpan>[
-              TextSpan(
-                text: "התיקון הכללי",
-                style: textStyleSimpleTextHeadline.copyWith(
-                  fontSize: 50,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      // FadeTransition(
+      //   opacity: _animation1,
+      //   child: CustomRichText(
+      //     textAlign: TextAlign.center,
+      //     alignment: Alignment.center,
+      //     textSpan: TextSpan(
+      //       children: <TextSpan>[
+      //         TextSpan(
+      //           text: "התיקון הכללי",
+      //           style: textStyleSimpleTextHeadline.copyWith(
+      //             fontSize: 50,
+      //             fontWeight: FontWeight.w400,
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
 
       SizedBox(height: shortSpace),
 

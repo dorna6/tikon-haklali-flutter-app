@@ -40,6 +40,9 @@ class _AnimatedTextsState extends State<MainPageBody>
   late final AnimationController _controller1;
   late final Animation<double> _animation1;
 
+  late final AnimationController _controller2;
+  late final Animation<double> _animation2;
+
   final ScrollController _scrollController = ScrollController();
 
   // declare parallex vars
@@ -49,6 +52,8 @@ class _AnimatedTextsState extends State<MainPageBody>
   double rate3 = 0;
   double rate4 = 0;
   double rate5 = 0;
+  double rate6 = 0;
+  double rate7 = 0;
 
   @override
   void initState() {
@@ -59,16 +64,26 @@ class _AnimatedTextsState extends State<MainPageBody>
       vsync: this,
     );
 
+    _controller2 = AnimationController(
+      duration: const Duration(seconds: 1, milliseconds: 0),
+      vsync: this,
+    );
+
     _animation1 = Tween(begin: 0.0, end: 1.0).animate(_controller1);
+    _animation2 = Tween(begin: 0.0, end: 1.0).animate(_controller2);
 
     Future.delayed(const Duration(milliseconds: 200), () {
       _controller1.forward();
+    });
+    Future.delayed(const Duration(milliseconds: 700), () {
+      _controller2.forward();
     });
   }
 
   @override
   void dispose() {
     _controller1.dispose();
+    _controller2.dispose();
     super.dispose();
   }
 
@@ -80,12 +95,14 @@ class _AnimatedTextsState extends State<MainPageBody>
         if (v is ScrollUpdateNotification) {
           setState(() {
             if (v.scrollDelta != null) {
-              rate0 += v.scrollDelta! / 2.2;
-              rate1 += v.scrollDelta! / 1.7;
-              rate2 += v.scrollDelta! / 1.9;
-              rate3 += v.scrollDelta! / 3;
-              rate4 += v.scrollDelta! / 4;
-              rate5 += v.scrollDelta! / 7;
+              rate0 += v.scrollDelta! / 1.4;
+              rate1 += v.scrollDelta! / 20;
+              rate2 += v.scrollDelta! / 4.0;
+              rate3 += v.scrollDelta! / 3.0;
+              rate4 += v.scrollDelta! / 2.3;
+              rate5 += v.scrollDelta! / 1.5;
+              rate6 += v.scrollDelta! / 1.3;
+              rate7 += v.scrollDelta! / 1.1;
             }
           });
         }
@@ -138,18 +155,36 @@ class _AnimatedTextsState extends State<MainPageBody>
                       //
                       // paralex image
 
-                      ParallaxWidget(top: rate1, asset: "assets/img5.png"),
-                      ParallaxWidget(top: rate2, asset: "assets/img4.png"),
+                      ParallaxWidget(top: rate7, asset: "assets/img7.png"),
+                      ParallaxWidget(top: rate6, asset: "assets/img6.png"),
+                      ParallaxWidget(top: rate5, asset: "assets/img5.png"),
+                      ParallaxWidget(top: rate4, asset: "assets/img4.png"),
                       ParallaxWidget(top: rate3, asset: "assets/img3.png"),
-                      ParallaxWidget(top: rate4, asset: "assets/img2.png"),
+                      ParallaxWidget(top: rate2, asset: "assets/img2.png"),
 
-                      ParallaxWidgetText(
-                          top: rate0,
-                          main_text:
-                              "אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא ",
-                          sub_text: "תִּקּוּן הַכְּלָלִי."),
+                      Positioned(
+                        width: MediaQuery.of(context).size.width,
+                        top: rate0 + 80,
+                        child: FadeTransition(
+                          opacity: _animation2,
+                          child: ParallaxWidgetText(
+                            top: rate0,
+                            main_text:
+                                "אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא ",
+                            sub_text: "תִּקּוּן הַכְּלָלִי.",
+                            opacity: 1,
+                          ),
+                        ),
+                      ),
 
-                      ParallaxWidget(top: rate5, asset: "assets/img1.png"),
+                      // ParallaxWidgetText(
+                      //   top: rate0,
+                      //   main_text:
+                      //       "אַךְ בַּזֶּה אֲנִי חָזָק בְּיוֹתֵר שֶׁאֵלּוּ הָעֲשָׂרָה מִזְמוֹרֵי תְּהִלִּים מוֹעִילִים מְאֹד מְאֹד, וְאָמַר שֶׁהוּא ",
+                      //   sub_text: "תִּקּוּן הַכְּלָלִי.",
+                      //   opacity: 1,),
+
+                      ParallaxWidget(top: rate1, asset: "assets/img1.png"),
                     ],
                   ),
                 ),
