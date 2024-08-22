@@ -224,6 +224,22 @@ class _AnimatedTextsState extends State<MainPageBody>
                       // end spacer
                       SizedBox(
                           height: 50, width: MediaQuery.of(context).size.width),
+
+                      Text(
+                        'Icons designed by Freepik',
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Theme.of(context).colorScheme.secondary),
+                      ),
+                      Text(
+                        'www.freepik.com',
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Theme.of(context).colorScheme.secondary),
+                      ),
+
+                      SizedBox(
+                          height: 50, width: MediaQuery.of(context).size.width),
                     ],
                   );
                 },
