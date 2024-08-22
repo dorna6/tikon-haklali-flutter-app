@@ -60,22 +60,22 @@ class _AnimatedTextsState extends State<MainPageBody>
     super.initState();
 
     _controller1 = AnimationController(
-      duration: const Duration(seconds: 1, milliseconds: 0),
+      duration: const Duration(seconds: 0, milliseconds: 0),
       vsync: this,
     );
 
     _controller2 = AnimationController(
-      duration: const Duration(seconds: 1, milliseconds: 0),
+      duration: const Duration(seconds: 0, milliseconds: 0),
       vsync: this,
     );
 
     _animation1 = Tween(begin: 0.0, end: 1.0).animate(_controller1);
     _animation2 = Tween(begin: 0.0, end: 1.0).animate(_controller2);
 
-    Future.delayed(const Duration(milliseconds: 200), () {
+    Future.delayed(const Duration(milliseconds: 000), () {
       _controller1.forward();
     });
-    Future.delayed(const Duration(milliseconds: 700), () {
+    Future.delayed(const Duration(milliseconds: 000), () {
       _controller2.forward();
     });
   }
@@ -100,8 +100,8 @@ class _AnimatedTextsState extends State<MainPageBody>
               rate2 += v.scrollDelta! / 4.0;
               rate3 += v.scrollDelta! / 3.0;
               rate4 += v.scrollDelta! / 2.3;
-              rate5 += v.scrollDelta! / 1.5;
-              rate6 += v.scrollDelta! / 1.3;
+              rate5 += v.scrollDelta! / 1.4;
+              rate6 += v.scrollDelta! / 1.2;
               rate7 += v.scrollDelta! / 1.1;
             }
           });

@@ -40,16 +40,16 @@ class _mainTextWidget extends State<mainTextWidget>
     super.initState();
 
     _controller1 = AnimationController(
-      duration: const Duration(seconds: 1, milliseconds: 0),
+      duration: const Duration(seconds: 0, milliseconds: 0),
       vsync: this,
     );
 
     _controller2 = AnimationController(
-      duration: const Duration(seconds: 1, milliseconds: 0),
+      duration: const Duration(seconds: 0, milliseconds: 0),
       vsync: this,
     );
     _controller3 = AnimationController(
-      duration: const Duration(seconds: 1, milliseconds: 0),
+      duration: const Duration(seconds: 0, milliseconds: 0),
       vsync: this,
     );
 
@@ -57,13 +57,13 @@ class _mainTextWidget extends State<mainTextWidget>
     _animation2 = Tween(begin: 0.0, end: 1.0).animate(_controller2);
     _animation3 = Tween(begin: 0.0, end: 1.0).animate(_controller3);
 
-    Future.delayed(const Duration(milliseconds: 600), () {
+    Future.delayed(const Duration(milliseconds: 000), () {
       _controller1.forward();
     });
-    Future.delayed(const Duration(milliseconds: 800), () {
+    Future.delayed(const Duration(milliseconds: 000), () {
       _controller2.forward();
     });
-    Future.delayed(const Duration(milliseconds: 1000), () {
+    Future.delayed(const Duration(milliseconds: 0000), () {
       _controller3.forward();
     });
   }
