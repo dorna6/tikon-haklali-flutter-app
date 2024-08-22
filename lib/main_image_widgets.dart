@@ -76,24 +76,22 @@ class _MainPageBigImage extends State<MainPageBigImage>
     // define shadow variabels
     final BoxShadow boxShadowMainImg = BoxShadow(
         color: Theme.of(context).colorScheme.shadow,
-        spreadRadius: 2,
-        blurRadius: 6);
+        spreadRadius: 1,
+        blurRadius: 4);
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(0),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [boxShadowMainImg],
       ),
-      // height: 450,
+      height: 300,
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
       child: Stack(
         children: [
           Positioned.fill(
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(0.0),
-                bottomRight: Radius.circular(0.0),
+              borderRadius: BorderRadius.all(Radius.circular(20.0),
               ),
               child: Image.asset(mainImgPath[randomIndex_main_img],
                   fit: BoxFit.cover),
@@ -104,7 +102,7 @@ class _MainPageBigImage extends State<MainPageBigImage>
             children: [
               //
               Padding(
-                padding: EdgeInsets.fromLTRB(30, 70, 30, 15),
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 15),
                 child: Align(
                   alignment: Alignment.center,
                   child: FadeTransition(
@@ -125,7 +123,7 @@ class _MainPageBigImage extends State<MainPageBigImage>
               FadeTransition(
                 opacity: _animation1,
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(15, 0, 15, 30),
+                  padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                   child: Align(
                     alignment: Alignment.center,
                     child: RichText(

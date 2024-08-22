@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 // my import
 import 'custom_text_widget.dart';
+import 'main_image_widgets.dart';
 
 //
 //
@@ -39,16 +40,16 @@ class _mainTextWidget extends State<mainTextWidget>
     super.initState();
 
     _controller1 = AnimationController(
-      duration: const Duration(seconds: 1, milliseconds: 0),
+      duration: const Duration(seconds: 0, milliseconds: 0),
       vsync: this,
     );
 
     _controller2 = AnimationController(
-      duration: const Duration(seconds: 1, milliseconds: 0),
+      duration: const Duration(seconds: 0, milliseconds: 0),
       vsync: this,
     );
     _controller3 = AnimationController(
-      duration: const Duration(seconds: 1, milliseconds: 0),
+      duration: const Duration(seconds: 0, milliseconds: 0),
       vsync: this,
     );
 
@@ -56,13 +57,13 @@ class _mainTextWidget extends State<mainTextWidget>
     _animation2 = Tween(begin: 0.0, end: 1.0).animate(_controller2);
     _animation3 = Tween(begin: 0.0, end: 1.0).animate(_controller3);
 
-    Future.delayed(const Duration(milliseconds: 600), () {
+    Future.delayed(const Duration(milliseconds: 000), () {
       _controller1.forward();
     });
-    Future.delayed(const Duration(milliseconds: 800), () {
+    Future.delayed(const Duration(milliseconds: 000), () {
       _controller2.forward();
     });
-    Future.delayed(const Duration(milliseconds: 1000), () {
+    Future.delayed(const Duration(milliseconds: 0000), () {
       _controller3.forward();
     });
   }
@@ -136,24 +137,24 @@ class _mainTextWidget extends State<mainTextWidget>
     return Column(children: [
       SizedBox(height: shortSpace),
 
-      FadeTransition(
-        opacity: _animation1,
-        child: CustomRichText(
-          textAlign: TextAlign.center,
-          alignment: Alignment.center,
-          textSpan: TextSpan(
-            children: <TextSpan>[
-              TextSpan(
-                text: "התיקון הכללי",
-                style: textStyleSimpleTextHeadline.copyWith(
-                  fontSize: 50,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      // FadeTransition(
+      //   opacity: _animation1,
+      //   child: CustomRichText(
+      //     textAlign: TextAlign.center,
+      //     alignment: Alignment.center,
+      //     textSpan: TextSpan(
+      //       children: <TextSpan>[
+      //         TextSpan(
+      //           text: "התיקון הכללי",
+      //           style: textStyleSimpleTextHeadline.copyWith(
+      //             fontSize: 50,
+      //             fontWeight: FontWeight.w400,
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
 
       SizedBox(height: shortSpace),
 
@@ -5061,6 +5062,16 @@ class _mainTextWidget extends State<mainTextWidget>
         ),
       ),
       SizedBox(height: longSpace),
+
+      //
+      //
+      //
+      MainPageBigImage(context: context),
+      //
+      //
+      //
+      SizedBox(height: longSpace),
+
       CustomRichText(
         textAlign: TextAlign.center,
         alignment: Alignment.center,
