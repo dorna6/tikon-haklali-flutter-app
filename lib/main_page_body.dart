@@ -101,7 +101,7 @@ class _AnimatedTextsState extends State<MainPageBody>
               rate3 += v.scrollDelta! / 3.0;
               rate4 += v.scrollDelta! / 2.3;
               rate5 += v.scrollDelta! / 1.4;
-              rate6 += v.scrollDelta! / 1.2;
+              rate6 += v.scrollDelta! / 1.3;
               rate7 += v.scrollDelta! / 1.1;
             }
           });
