@@ -36,7 +36,6 @@ import 'package:provider/provider.dart';
 import 'theme_widgets.dart';
 import 'main_page_widgets.dart';
 
-
 //
 //
 //
@@ -58,7 +57,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       theme: Provider.of<ThemeProvider>(context).themeDataStyle,
       home: MainPage(),

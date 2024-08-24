@@ -122,7 +122,7 @@ class _AnimatedTextsState extends State<MainPageBody>
             shadowColor: Colors.black87,
             elevation: 5,
             pinned: true,
-            expandedHeight: 350.0,
+            expandedHeight: 400.0,
             backgroundColor: Theme.of(context).colorScheme.background,
             toolbarTextStyle: TextStyle(color: Colors.white),
             //
