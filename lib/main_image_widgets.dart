@@ -79,7 +79,7 @@ class _MainPageBigImage extends State<MainPageBigImage>
         fontSize: 20,
         fontFamily: 'DavidLibre',
         fontWeight: FontWeight.w400,
-      color: Color(0xFFffffff).withOpacity(0.8),
+      color: Color(0xFFffffff).withOpacity(1),
     );
 
     // define shadow variabels
