@@ -1,4 +1,4 @@
-package com.example.tikon_haklali_flutter_app
+package com.example1.tikon_haklali_flutter_app
 
 import io.flutter.embedding.android.FlutterActivity
 
